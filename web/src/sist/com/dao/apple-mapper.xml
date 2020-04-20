@@ -99,7 +99,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE ID=#{VALUE}
 	</select>
 	 
-	 
+	<select id="getPassword" parameterType="java.lang.Integer" resultType="java.lang.String">
+		select password from bbs_si where no=#{VALUE}
+	</select>
+	
+	<!-- 추가 -->
+	<delete id="deleteBBS">
+		delete from bbs_si where no=#{VALUE}
+	</delete>
 	 
 </mapper>
 

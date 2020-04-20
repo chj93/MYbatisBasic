@@ -8,8 +8,30 @@
 </head>
 <body>
 <%
-	
+	String no=request.getParameter("no");
+	String job=request.getParameter("job");
+	String pageData=request.getParameter("page");
 
 %>
+
+	<div class="container">
+	
+	  <h2>PassWord</h2>
+	  <form class="form-inline" action="passwordConfirm.jsp" method="post">
+	  <!-- 비밀번호가 노출되면 안되므로 메소드 포스트 방식 -->
+	    
+	    <div class="form-group">
+	      <label for="pwd">비밀번호 :</label>
+	      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="cp">
+	      <input type="hidden" name="no" value="<%=no%>">
+	      <input type="hidden" name="job" value="<%=job%>">
+	      <input type="hidden" name="page" value="<%=pageData%>">
+	    </div>
+	    <div class="checkbox">
+	      <!-- <label><input type="checkbox" name="remember"> Remember me</label> -->
+	    </div>
+	    <button type="submit" class="btn btn-default">제출</button>
+	  </form>
+	</div>
 </body>
 </html>

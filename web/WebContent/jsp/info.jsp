@@ -12,21 +12,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
 <meta http-equiv="imagetoolbar" content="no" />
 <link href="../css/contents.css" rel="stylesheet" type="text/css" />
-
-
 <%
 	int no = Integer.parseInt(request.getParameter("no"));
 	String pageData = request.getParameter("page");
 	BbsBean bean=(BbsBean)AppleDao.bbsInfo(no);
-	
 	String id=(String)request.getSession().getAttribute("id");
 %>
 <script>
-
    function changeImge(obj){
 	   document.getElementById("ig").src=obj.src;
-   }
-   
 </script>
 </head>
 <body>   
@@ -54,7 +48,9 @@
 					<div class="btnSet clfix mgb15">
 						<span class="fr">
 							<span class="button"> <a href="">수정</a></span>
-							<span class="button"><a href="">삭제</a></span>
+							<span class="button">
+								<a href="password.jsp?no=<%=no%>&job=del&page=<%=request.getParameter("page") %>">삭제</a>
+							</span>
 							<span class="button"><a href="edit.jsp">답글</a></span>
 							<span class="button"><a href="list.jsp">목록</a></span>
 						</span>

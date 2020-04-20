@@ -155,10 +155,52 @@ public class AppleDao {
 			// TODO: handle exception
 			e.printStackTrace();
 		}finally {
-			
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
 		}
 		return false;
-		
+	}
+	
+	public static String getPassword(int no) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession=sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getPassword",no);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+			
+		}
+		return null;
+	}
+	
+	//Ãß°¡
+	public static void deleteBBS(int no) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			sqlSession.delete("deleteBBS", no);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		} finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
 	}
 	
 

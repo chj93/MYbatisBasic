@@ -157,7 +157,7 @@
 							<tr>
 								<td class="fir"><%=b.getNo()%></td>
 								<td>
-									<a href="hit.jsp?no=<%=b.getNo()%>&page=5">
+									<a href="hit.jsp?no=<%=b.getNo()%>&page=<%=currentPage%>">
 									<%
 									    String []str=b.getFilename().split("#");
 									    for(int i=0;i<str.length;i++){
