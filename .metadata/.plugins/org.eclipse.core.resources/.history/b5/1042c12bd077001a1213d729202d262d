@@ -1,0 +1,23 @@
+package sist.com.dao;
+
+import java.io.Reader;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+public class SqlSessionFactoryManager {
+	private static SqlSessionFactory sessionFactory;	
+	static {
+		try {
+			Reader reader=Resources.getResourceAsReader("");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+}
+
+
+
+
+

@@ -1,0 +1,93 @@
+package sist.com.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import sist.com.model.EmpBean;
+import sist.com.model.StudentBean;
+import sist.com.util.ServiceUtil;
+//id pass
+//empno|ename
+//7788  SMITH
+//7789  ALLEN
+public class AppleDao {
+	
+	
+	public static boolean idCheck(String id,String pass) {
+		Connection con=null;//db연결객체
+		PreparedStatement pstmt=null;//db연결운반객체
+		ResultSet rs=null;//결과집합
+		String sql="SELECT EMPNO FROM EMP WHERE ENAME=?";		
+		try {
+			con=ServiceUtil.getConnection();
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			String dbEmpno=null;
+			if(rs.next()) {
+				dbEmpno=String.valueOf(rs.getInt(1));
+				if(dbEmpno!=null&& dbEmpno.equals(pass))return true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+	
+	public static HashMap<String, Object>  selectTable(String sql) {
+		Connection con=null;//db연결객체
+		PreparedStatement pstmt=null;//db연결운반객체
+		ResultSet rs=null;//결과집합
+		ResultSetMetaData rsmd=null;//결과집합집합
+		String []column= {};
+		HashMap<String, Object>totalMap=new HashMap<String,Object>();
+		ArrayList<HashMap<String, Object>>list=new ArrayList<HashMap<String,Object>>();
+		try {
+			con=ServiceUtil.getConnection();
+			pstmt=con.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+			rs=pstmt.executeQuery();
+			rsmd=rs.getMetaData();
+			column=new String[rsmd.getColumnCount()];
+			for (int i = 0; i < column.length; i++) {
+				column[i]=rsmd.getColumnLabel(i+1);
+				System.out.println(column[i]);
+			}	
+			
+			//String mod=sql.substring(sql.indexOf("M")+1).trim();
+			
+
+			while(rs.next()) {//행개수
+			//Object obj=mod.equals("EMP")?new EmpBean():new StudentBean();
+			    HashMap<String, Object>map=new HashMap<String,Object>();
+				for(int i=0;i<column.length;i++) {					
+						//System.out.println(column[i]+":"+rs.getObject(i+1));
+					     map.put(column[i], rs.getObject(i+1));					
+				}
+				list.add(map);
+			}
+			System.out.println(list);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				con.close();
+				pstmt.close();				
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		totalMap.put("list", list);
+		totalMap.put("column", column);
+		
+		return totalMap;
+	}
+
+}

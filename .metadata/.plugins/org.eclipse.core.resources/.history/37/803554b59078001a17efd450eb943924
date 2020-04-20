@@ -1,0 +1,27 @@
+package sist.com.dao;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+
+public class AppleDao {	
+	private static SqlSessionFactory sqlSessionFactory;
+	static {
+		sqlSessionFactory=SqlSessionFactoryManager.getSqlSessionFactory();
+	}
+	
+	/*public static void connect() {
+		System.out.println(sqlSessionFactory);
+	}
+	
+	public static void main(String[] args) {
+		connect();
+	}*/
+	
+
+}
+
+
+
+
+
+
+

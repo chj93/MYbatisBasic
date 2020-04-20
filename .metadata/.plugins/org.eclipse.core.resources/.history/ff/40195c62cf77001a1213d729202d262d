@@ -1,0 +1,8 @@
+package sist.com.dao;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+
+public class SqlSessionFactoryManager {
+	private static SqlSessionFactory sessionFactory;
+
+}

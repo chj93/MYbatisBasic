@@ -1,0 +1,22 @@
+package sist.com.dao;
+
+import java.sql.ResultSet;
+
+public class AppleDao {
+	
+	
+	public void selectEmp() {	
+		  
+	}
+	
+	
+	
+
+}
+
+
+
+
+
+
+

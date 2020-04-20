@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sist.com.bean.apple">
+	
+     <resultMap type="emp"  id="selectEmpID">
+       <result  property="empno" column="en"/>
+       <result  property="ename" column="irum"/> 
+       <result  property="sal" column="sal"/>
+       <result  property="c" column="comm"/>
+       <result  property="hiredate" column="hiredate"/>
+       <result  property="job" column="job"/>
+       
+     </resultMap>
+
+	<select id="selectEmp" resultType="emp" resultMap="selectEmpID">	    
+		SELECT EMPNO en,ENAME irum,SAL,NVL(COMM,0)Comm,MGR,
+		TO_CHAR(HIREDATE,'YYY/MM/DD')HIREDATE,JOB
+		FROM EMP
+	</select>
+	
+	<select id="selectStudent">
+	   SELECT STUDNO,NAME,USERID,GRADE,	HEIGHT		
+	   FROM STUDENT
+	
+	</select>
+</mapper>
+
+
+
+
+

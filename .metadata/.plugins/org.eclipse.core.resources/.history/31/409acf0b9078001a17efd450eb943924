@@ -1,0 +1,17 @@
+package sist.com.dao;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+
+public class AppleDao {	
+	private SqlSessionFactory sqlSessionFactory;
+	
+	
+
+}
+
+
+
+
+
+
+

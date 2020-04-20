@@ -1,0 +1,14 @@
+package sist.com.servlet;
+
+public class Test {
+
+	class Inner {
+
+	}
+	/*public void say() {
+     public class LocalInner{
+    	  
+      }
+	}*/
+
+}

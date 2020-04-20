@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<SAVED_DATA>
+	<bookmarks>
+		<jdbcDriver className="oracle.jdbc.OracleDriver" name="Oracle JDBC driver" type="ORACLE" version="10.2.0.1.0">
+			<jar fileName="D:\dbExe\ojdbc14.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="org.apache.derby.jdbc.EmbeddedDriver" name="org.apache.derby.jdbc.EmbeddedDriver" type="DERBY" version="">
+			<jar fileName="D:/javaEx/eclipse-jee-2018-09-win32-x86_64/eclipse/file::/D::/javaEx/eclipse-jee-2018-09-win32-x86_64/eclipse/plugins/com.quantum.derby_3.3.10.jar!/lib/derby.jar" />
+		</jdbcDriver>
+		<bookmark>
+			<name>APPLE</name>
+			<username>APPLE</username>
+			<password>APPLE</password>
+			<prompt>false</prompt>
+			<connect>jdbc:oracle:thin:@localhost:1521:orcl</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>oracle.jdbc.OracleDriver</driver>
+			<type>ORACLE</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>D:\dbExe\ojdbc14.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>select * from student</queryString>
+				</query>
+				<query>
+					<queryString>SELECT * FROM STUDENT</queryString>
+				</query>
+				<query>
+					<queryString>SELECT * FROM SALGRADE</queryString>
+				</query>
+				<query>
+					<queryString>DELETE FROM SALGRADE</queryString>
+				</query>
+				<query>
+					<queryString>INSERT INTO SALGRADE VALUES(1,700,1200)</queryString>
+				</query>
+				<query>
+					<queryString>INSERT INTO SALGRADE VALUES(2,1201,1400)</queryString>
+				</query>
+				<query>
+					<queryString>INSERT INTO SALGRADE VALUES(3,1401,2000)</queryString>
+				</query>
+				<query>
+					<queryString>INSERT INTO SALGRADE VALUES(4,2001,3000)</queryString>
+				</query>
+				<query>
+					<queryString>INSERT INTO SALGRADE VALUES(5,3001,9999)</queryString>
+				</query>
+				<query>
+					<queryString>SELECT EMPNO,ENAME,SAL,DNAME,LOC,GRADE
+ FROM EMP E,DEPT D,SALGRADE S
+WHERE E.DEPTNO=D.DEPTNO AND E.SAL BETWEEN S.LOSAL AND S.HISAL</queryString>
+				</query>
+				<query>
+					<queryString>SELECT * FROM EMP</queryString>
+				</query>
+				<query>
+					<queryString>CREATE TABLE BBS_SI(
+NO NUMBER(5) CONSTRAINT BBS_SI_NO_PK PRIMARY KEY,
+WRITER VARCHAR2(20) CONSTRAINT BBS_SI_WRITER_NN NOT NULL,
+TITLE VARCHAR2(20) CONSTRAINT BBS_SI_TITLE_NN NOT NULL,
+PASSWORD VARCHAR2(6),
+CONTENTS CLOB,
+HIT NUMBER(5),
+FileName VARCHAR2(50),
+REGDATE DATE)</queryString>
+				</query>
+				<query>
+					<queryString>CREATE SEQUENCE BBS_SI_SEQ</queryString>
+				</query>
+				<query>
+					<queryString>SELECT * FROM BBS_SI</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+		<bookmark>
+			<name>(Internal) Derby</name>
+			<username>QUANTUM</username>
+			<password />
+			<prompt>false</prompt>
+			<connect>jdbc:derby:D:/javaEx/eclipse-jee-2018-09-win32-x86_64/eclipse/file::/D::/javaEx/eclipse-jee-2018-09-win32-x86_64/eclipse/plugins/com.quantum.derby_3.3.10.jar!/data/quantum</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>true</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+			<type>DERBY</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>D:/javaEx/eclipse-jee-2018-09-win32-x86_64/eclipse/file::/D::/javaEx/eclipse-jee-2018-09-win32-x86_64/eclipse/plugins/com.quantum.derby_3.3.10.jar!/lib/derby.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList />
+		</bookmark>
+	</bookmarks>
+</SAVED_DATA>

@@ -1,0 +1,33 @@
+package sist.com.util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class ServiceUtil {
+	private static Connection con;	
+	public static Connection getConnection() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "APPLE", "APPLE");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return con;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

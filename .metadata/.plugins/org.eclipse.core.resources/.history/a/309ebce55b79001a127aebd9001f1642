@@ -1,0 +1,17 @@
+package sist.com.model;
+
+public class BbsBean {
+	private int no;
+	private String writer;
+	private String title;
+	private String password;
+	private String contents;
+	private int  hit;
+	private String filename;
+	private String regdate;
+	
+	
+	
+
+
+}

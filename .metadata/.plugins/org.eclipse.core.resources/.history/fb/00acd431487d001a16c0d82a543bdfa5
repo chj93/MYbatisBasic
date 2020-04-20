@@ -1,0 +1,131 @@
+package sist.com.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import sist.com.model.BbsBean;
+import sist.com.model.EmpBean;
+import sist.com.model.StudentBean;
+
+public class AppleDao {
+	private static SqlSessionFactory sqlSessionFactory;
+	static {
+		sqlSessionFactory = SqlSessionFactoryManager.getSqlSessionFactory();
+	}
+
+	public static List<EmpBean> selectEmpCon() {
+		return sqlSessionFactory.openSession().selectList("sist.com.bean.scott.selectEmp2");
+	}
+
+	public static List<HashMap<String, Object>> selectStudent() {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("selectStudent");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return null;
+
+	}
+
+	public static List<EmpBean> selectEmp() {
+		// System.out.println(sqlSessionFactory.openSession());
+		/*
+		 * String sql="SELECT EMPNO EP FROM EMP"; Connection con=null; PreparedStatement
+		 * pstmt=null; ResultSet rs=null; ArrayList<EmpBean>list=new
+		 * ArrayList<EmpBean>();
+		 * 
+		 * try { pstmt=con.prepareStatement(sql); rs=pstmt.executeQuery();
+		 * while(rs.next()) { EmpBean bean=new EmpBean();
+		 * bean.setEmpno(rs.getInt("empno")); bean.setEname(rs.getString("ename"));
+		 * bean.setEmpno(rs.getInt("empno")); bean.setEname(rs.getString("ename"));
+		 * bean.setEmpno(rs.getInt("empno")); bean.setEname(rs.getString("ename"));
+		 * list.add(bean); }
+		 * 
+		 * } catch (Exception e) { // TODO: handle exception }
+		 * 
+		 */
+		return sqlSessionFactory.openSession().selectList("sist.com.bean.apple.selectEmp");
+
+	}
+
+	public static List<BbsBean> selectBbs() {
+		return sqlSessionFactory.openSession().selectList("selectBbs");
+	}
+
+	public static void updateHit(int no) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			sqlSession.update("updateHit", no);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		} finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+	}
+
+	public static Object bbsInfo(int no) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("bbsInfo", no);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		} finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return null;
+	}
+
+	public static void insertBBS(BbsBean bean) {
+		SqlSession sqlSession = null;
+		try {
+
+			sqlSession = sqlSessionFactory.openSession();
+			sqlSession.insert("insertBBS", bean);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		} finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+
+	}
+
+}

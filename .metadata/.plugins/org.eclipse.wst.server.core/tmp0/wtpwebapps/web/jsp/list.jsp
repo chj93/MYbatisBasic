@@ -1,0 +1,170 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="sist.com.model.BbsBean"%>
+<%@page import="java.util.List"%>
+<%@page import="sist.com.dao.AppleDao"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>관리자</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link href="../css/contents.css" rel="stylesheet" type="text/css" />
+<script>
+   function searchData(){
+	   var obj=document.searchFrm;
+	   if(obj.query.value=='empty'|| !obj.data.value){
+		   alert('SearchData!');
+		   obj.query.selectedIndex=0;
+		   obj.data.value='';
+		   return false;
+	   }
+	   obj.submit();
+   }
+</script>
+</head>
+<body>
+	<%
+		List<BbsBean> list =null;
+	    String query=request.getParameter("query");
+	    String data=request.getParameter("data");
+	    HashMap<String,Object>map=new HashMap<String,Object>();
+	    if(query!=null&& data!=null){
+        map.put("query", query);
+        map.put("data", data);
+		list=AppleDao.selectBbs(map);
+	    }else{
+	    	list=AppleDao.selectBbs(null);
+	    }
+	    
+	%>
+	<div id="wrapper">
+		<div id="header">
+			<div class="topInfoWrap">
+				<div class="topInfoArea clfix">
+					<div class="loginWrap">
+						<span class="fir">2012.05.17</span> <span>13:30:22</span> <span><em>OOO님</em>
+							좋은 하루 되세요</span> <a href="" class="btnLogout"><img
+							src="../img/common/btn_logout.gif" alt="로그아웃" /></a>
+					</div>
+				</div>
+			</div>
+			<div class="gnbSubWrap"></div>
+		</div>
+		<div id="container">
+			<div id="contentsWrap" class="contentsWrap">
+				<div class="contents">
+					<h1 class="title">게시판 리스트</h1>
+					<div class="btnSet clfix mgb15">
+						<span class="fr"> <span class="button"><a href="javascript:searchData()">검색</a></span>
+							<span class="button"><a href="edit.jsp">글쓰기</a></span>
+							<span class="button"><a href="list.jsp">새로고침</a></span>
+						</span>
+					</div>
+                   <form action="" method="post" name="searchFrm">
+					<table class="bbsWrite mgb35">
+						<caption></caption>
+						<colgroup>
+							<col width="30" />
+							<col width="150" />
+							<col width="150" />
+							<col width="150" />
+							<col width="150" />
+							<col width="150" />
+							<col width="150" />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>검색</th>
+								<td><select name="query">
+									<option selected="selected" value="empty">선택하세요</option>
+									<option value="TITLE">TITLE</option>
+									<option value="WRITER">WRITER</option>
+									<option value="CONTENTS">CONTENTS</option>
+								    </select>
+								 <input type="text" name="data" class="inputText" size="30" /></td>
+							</tr>
+						</tbody>
+					</table>
+					</form>
+
+					<table class="bbsList">
+						<colgroup>
+							<col width="30" />
+							<col width="150" />
+							<col width="150" />
+							<col width="150" />
+							<col width="150" />
+							<col width="150" />
+							<col width="150" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col" class="fir">NO</th>
+								<th scope="col">IMAGE</th>
+								<th scope="col">TITLE</th>
+								<th scope="col">WRITER</th>
+								<th scope="col">HIT</th>
+								<th scope="col">GRADE</th>
+								<th scope="col">REGDATE</th>
+
+							</tr>
+						</thead>
+
+						<tbody>
+							<%
+								for (BbsBean b : list) {
+							%>
+							<tr>
+								<td class="fir"><%=b.getNo()%></td>
+								<td><a href="hit.jsp?no=<%=b.getNo()%>&page=5"><img
+										src="/web/upload/<%=b.getFilename()%>" width="50" height="50" /></a></td>
+								<td><%=b.getTitle()%></td>
+								<td><%=b.getWriter()%></td>
+								<td><%=b.getHit()%></td>
+								<td>
+									<%
+										String img = "";
+											switch (b.getGrade()) {
+											case 1:
+												img = "1.jpg";
+												break;
+											case 2:
+												img = "2.jpg";
+												break;
+											case 3:
+												img = "3.jpg";
+												break;
+											default:
+												img = "4.jpg";
+											}
+									%>
+									<img src="/web/reImage/<%=img %>" width="50" height="50"/>
+								</td>
+								<td><%=b.getRegdate()%></td>
+							</tr>
+							<%
+								}
+							%>
+						</tbody>
+					</table>
+
+					<div class="paging">
+						<a href="#"><img src="../img/button/btn_first.gif" alt="처음페이지" /></a>
+						<a href="#"><img src="../img/button/btn_prev.gif" alt="이전" /></a>
+
+						<span> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a>
+							<strong>4</strong> <a href="#">5</a> <a href="#">6</a> <a
+							href="#">7</a> <a href="#">8</a> <a href="#">9</a>
+						</span> <a href="#"><img src="../img/button/btn_next.gif" alt="다음" /></a>
+						<a href="#"><img src="../img/button/btn_last.gif" alt="마지막페이지" /></a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

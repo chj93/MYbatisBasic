@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sist.com.bean.apple">
+
+	<resultMap type="emp" id="selectEmpID">
+		<result property="empno" column="en" />
+		<result property="ename" column="irum" />
+		<result property="sal" column="sal" />
+		<result property="c" column="comm" />
+		<result property="hiredate" column="hiredate" />
+		<result property="job" column="job" />
+
+	</resultMap>
+	<sql id="selectBbsSQL">
+		SELECT NO,WRITER,TITLE,
+		HIT,CASE
+		WHEN HIT BETWEEN 0 AND 10 THEN 1
+		WHEN HIT BETWEEN 11 AND 20 THEN 2
+		WHEN HIT BETWEEN 21 AND 50 THEN 3
+		WHEN HIT BETWEEN 51 AND 100 THEN 4
+		ELSE
+		5
+		END GRADE,
+		TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,FILENAME
+		FROM BBS_SI
+		ORDER BY NO DESC
+	</sql>
+	<select id="selectBbs" resultType="bbs">
+		<include refid="selectBbsSQL"></include>
+	</select>
+
+	<select id="selectEmp" resultType="emp" resultMap="selectEmpID">
+		SELECT EMPNO en,ENAME irum,SAL,NVL(COMM,0)Comm,MGR,
+		TO_CHAR(HIREDATE,'YYY/MM/DD')HIREDATE,JOB
+		FROM EMP
+	</select>
+
+	<select id="selectStudent" resultType="java.util.HashMap">
+		SELECT STUDNO,NAME
+		FROM STUDENT
+	</select>
+	<insert id="insertBBS" parameterType="bbs">
+		INSERT INTO BBS_SI
+		VALUES(BBS_SI_SEQ.NEXTVAL,#{writer},#{title},
+		#{password},#{contents},0,#{filename},SYSDATE)
+	</insert>
+	<update id="updateHit" parameterType="int">
+	    UPDATE BBS_SI SET
+	    HIT=HIT+1
+	    WHERE NO=#{VALUE}
+	</update>
+	<select id="bbsInfo" resultType="bbs"
+	 parameterType="java.lang.Integer">
+	 SELECT NO,WRITER,TITLE,CONTENTS,HIT,FILENAME,
+	 TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE
+	 FROM BBS_SI
+	 WHERE NO=#{VALUE}	
+	 
+	 </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
