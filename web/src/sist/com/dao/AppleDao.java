@@ -203,5 +203,25 @@ public class AppleDao {
 		}
 	}
 	
+	public static void updateBBS(BbsBean bean) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession=sqlSessionFactory.openSession();
+			sqlSession.update("updateBBS",bean);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				sqlSession.close();
+				sqlSession.rollback();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+			
+		}
+	}
+	
 
 }

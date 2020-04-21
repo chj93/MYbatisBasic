@@ -31,6 +31,9 @@
     	diskFileUpload.setSizeMax(1024*1024*5);
     	List<FileItem>list=diskFileUpload.parseRequest(request);
     	BbsBean bbs=new BbsBean();
+    	bbs.setNo(Integer.parseInt(request.getParameter("no")));
+    	String job=request.getParameter("job");
+    	
     	String fixFile="";
     	for(FileItem fileItem:list){
     		String name=fileItem.getFieldName();    	
@@ -67,10 +70,16 @@
     	}//for
     	
     	bbs.setFilename(bbs.getFilename()==null?"noimage.jpg":bbs.getFilename());
-    	AppleDao.insertBBS(bbs);
-	    response.sendRedirect("list.jsp");
-	    
+    	
+    	if(job.equals("new")){
+    		AppleDao.insertBBS(bbs);
+    		response.sendRedirect("list.jsp");
+    	}else if(job.equals("modify")){
+    		AppleDao.updateBBS(bbs);
+    		response.sendRedirect("info.jsp?no="+bbs.getNo()+"&page=1");
+    	}
 	    //out.println(bbs);
+	    //out.println(job);
     }    
     
 %>

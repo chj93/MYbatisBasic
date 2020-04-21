@@ -47,7 +47,7 @@
 					<h1 class="title">게시판 상세보기</h1>
 					<div class="btnSet clfix mgb15">
 						<span class="fr">
-							<span class="button"> <a href="">수정</a></span>
+							<span class="button"> <a href="password.jsp?no=<%=no%>&job=modify&page=<%=request.getParameter("page") %>">수정</a></span>
 							<span class="button">
 								<a href="password.jsp?no=<%=no%>&job=del&page=<%=request.getParameter("page") %>">삭제</a>
 							</span>

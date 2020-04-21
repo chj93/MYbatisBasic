@@ -74,7 +74,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<select id="bbsInfo" resultType="bbs"
 	 parameterType="java.lang.Integer">
-	 SELECT NO,WRITER,TITLE,CONTENTS,HIT,FILENAME,
+	 SELECT NO,WRITER,TITLE,CONTENTS,HIT,FILENAME,PASSWORD,
 	 TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE
 	 FROM BBS_SI
 	 WHERE NO=#{VALUE}	
@@ -104,9 +104,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 추가 -->
-	<delete id="deleteBBS">
+	<delete id="deleteBBS" parameterType="java.lang.Integer">
 		delete from bbs_si where no=#{VALUE}
 	</delete>
+	
+	<update id="updateBBS">
+		UPDATE BBS_SI SET
+		writer=#{writer},title=#{title},password=#{password},contents=#{contents}
+		<if test="filename!='noimage.jpg'">
+		,FILENAME=#{filename}
+		</if>
+		where no=#{no}
+	</update>
 	 
 </mapper>
 

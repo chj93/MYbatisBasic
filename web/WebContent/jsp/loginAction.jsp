@@ -12,7 +12,7 @@
 	
 	 if(AppleDao.inCheckProcess(id, pw)){
 		session.setAttribute("id", id);
-		session.setMaxInactiveInterval(60);
+		session.setMaxInactiveInterval(2000);
 		//60초동안 머물수있게
 		response.sendRedirect("edit.jsp");
 		//입력 페이지로 이동
