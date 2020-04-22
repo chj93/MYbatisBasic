@@ -62,10 +62,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT STUDNO,NAME
 		FROM STUDENT
 	</select>
+	
 	<insert id="insertBBS" parameterType="bbs">
-		INSERT INTO BBS_SI
-		VALUES(BBS_SI_SEQ.NEXTVAL,#{writer},#{title},
-		#{password},#{contents},0,#{filename},SYSDATE,#{id})
+		INSERT INTO BBS_SI(NO,WRITER,TITLE,PASSWORD,CONTENTS,HIT,FILENAME,REGDATE,ID,REF,STEP,LEV,PNUM,REPLY)
+		VALUES(#{no},#{writer},#{title},#{password},#{contents},0,#{filename},SYSDATE,#{id},#{ref},#{step},#{lev},#{pnum},0)
 	</insert>
 	<update id="updateHit" parameterType="int">
 	    UPDATE BBS_SI SET
@@ -117,6 +117,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where no=#{no}
 	</update>
 	 
+	<select id="getSequence" resultType="java.lang.Integer">
+		SELECT BBS_SI_SEQ.NEXTVAL FROM DUAL
+		
+	</select> 
 </mapper>
 
 

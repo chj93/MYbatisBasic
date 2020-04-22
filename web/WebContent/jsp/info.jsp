@@ -51,7 +51,8 @@
 							<span class="button">
 								<a href="password.jsp?no=<%=no%>&job=del&page=<%=request.getParameter("page") %>">삭제</a>
 							</span>
-							<span class="button"><a href="edit.jsp">답글</a></span>
+							<span class="button"><a href="edit.jsp?mode=reply&ref=<%=bean.getRef()%>&lev=<%=bean.getLev()%>&step=<%=bean.getStep()%>&pnum=<%=bean.getNo()%>">답글</a></span>
+							<!-- 현재화면이 부모의 화면이므로 no의 값을 보내면  pNum의 값 -->
 							<span class="button"><a href="list.jsp">목록</a></span>
 						</span>
 					</div>

@@ -35,8 +35,17 @@
 	<%
 	String id=(String)session.getAttribute("id");
 	String ps=(String)session.getAttribute("pw");
-	
 	String mode=request.getParameter("mode");
+	
+	//mode=reply&ref=0&lev=0&step=0&pnum=91
+	int ref=0, lev=0,step=0,pnum=0;
+	if(mode!=null && mode.equals("reply")){
+		ref=Integer.parseInt(request.getParameter("ref"));
+		lev=Integer.parseInt(request.getParameter("lev"));
+		step=Integer.parseInt(request.getParameter("step"));
+		pnum=Integer.parseInt(request.getParameter("pnum"));
+	}
+	
 	int no=0;
 	no=request.getParameter("no")!=null?Integer.parseInt(request.getParameter("no")):0;
 	//0이 아니면 수정모드.
@@ -107,7 +116,16 @@
 							<td>
 								<input type="hidden" name="id" value="<%=id %>" />
 								<input type="password" name="password" class="inputText" size="50" value="<%=bean!=null?bean.getPassword():"" %>"/>
-								
+								<%
+								if(mode!=null && mode.equals("reply")){
+								%>
+									<input type="hidden" name="ref" value="<%=ref %>"/>
+									<input type="hidden" name="step" value="<%=step %>"/>
+									<input type="hidden" name="lev" value="<%=lev %>"/>
+									<input type="hidden" name="pnum" value="<%=pnum %>"/>
+								<%
+								}
+								%>
 							</td>
 						</tr>
 						<tr>
@@ -117,21 +135,15 @@
 							</td>
 						</tr>
 						<%
-						String fileNames=bean!=null?bean.getFilename():null;
-						String []str=bean!=null?fileNames.split("#"):null;
-						
-/* 						if(bean!=null){
-							out.println(str[0]);
-							out.println(str[1]);
-							out.println(str[2]);
-						} 
-*/		
+						String fileNames=((bean!=null)?bean.getFilename():null);
+						String [] str=new String [3];
+						str=((fileNames!=null)?fileNames.split("#"):null);
 						%>
 						<tr>
 							<th scope="row">이미지첨부1</th>
 							<td>
 							<input type="file" name="file" class="inputText" size="50"/>
-								<%=bean!=null & str!=null?"<img src=\"/web/upload/"+str[0].trim()+"\" width=\"70\" height=\"70\"></img>":"" %>
+								 <%=bean!=null && str.length==1?"<img src=\"/web/upload/"+str[0].trim()+"\" width=\"70\" height=\"70\"></img>":"" %>
 								<%-- <img src="<%=bean!=null && str[0]!=null?"/web/upload/"+str[0]:""%>"  width="70" height="70"></img> --%>
 							</td>
 						</tr>
@@ -140,18 +152,19 @@
 							<th scope="row">이미지첨부2</th>
 							<td>
 							<input type="file" name="file" class="inputText" size="50" />
-								<%=bean!=null & str!=null?"<img src=\"/web/upload/"+str[1].trim()+"\" width=\"70\" height=\"70\"></img>":"" %>
+								<%=bean!=null && str.length==2?"<img src=\"/web/upload/"+str[1].trim()+"\" width=\"70\" height=\"70\"></img>":"" %>
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">이미지첨부3</th>
 							<td>
 							<input type="file" name="file" class="inputText" size="50"/>
-								<%=bean!=null & str!=null?"<img src=\"/web/upload/"+str[2].trim()+"\" width=\"70\" height=\"70\"></img>":"" %>
+								<%=bean!=null && str.length==3?"<img src=\"/web/upload/"+str[2].trim()+"\" width=\"70\" height=\"70\"></img>":"" %>
 							</td>
 						</tr>				
 						</tbody>
 					</table>
+					
 					</form>
 				</div>
 			</div>

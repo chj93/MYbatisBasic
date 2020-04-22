@@ -10,11 +10,48 @@ public class BbsBean {
 	private int  hit;
 	private String filename;
 	private String regdate;
-	private String id;	
+	private String id;
+	private int ref;
+	private int step;
+	private int lev;
+	private int pnum;
+	private int reply;	
+	
+	//NO	WRITER	TITLE	PASSWORD	CONTENTS	HIT	FILENAME	REGDATE	ID	REF	STEP	LEV	PNUM	REPLY	
 
 	
 	public String getId() {
 		return id;
+	}
+	public int getRef() {
+		return ref;
+	}
+	public void setRef(int ref) {
+		this.ref = ref;
+	}
+	public int getStep() {
+		return step;
+	}
+	public void setStep(int step) {
+		this.step = step;
+	}
+	public int getLev() {
+		return lev;
+	}
+	public void setLev(int lev) {
+		this.lev = lev;
+	}
+	public int getPnum() {
+		return pnum;
+	}
+	public void setPnum(int pnum) {
+		this.pnum = pnum;
+	}
+	public int getReply() {
+		return reply;
+	}
+	public void setReply(int reply) {
+		this.reply = reply;
 	}
 	public void setId(String id) {
 		this.id = id;
@@ -77,7 +114,8 @@ public class BbsBean {
 	public String toString() {
 		return "BbsBean [no=" + no + ", grade=" + grade + ", writer=" + writer + ", title=" + title + ", password="
 				+ password + ", contents=" + contents + ", hit=" + hit + ", filename=" + filename + ", regdate="
-				+ regdate + ", id=" + id + "]";
+				+ regdate + ", id=" + id + ", ref=" + ref + ", step=" + step + ", lev=" + lev + ", pnum=" + pnum
+				+ ", reply=" + reply + "]";
 	}
 	
 	

@@ -222,6 +222,25 @@ public class AppleDao {
 			
 		}
 	}
+	//½ÃÄö½º »ý¼º
+	public static Integer getSequence() {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession=sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getSequence");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return null;
+	}
+	
 	
 
 }

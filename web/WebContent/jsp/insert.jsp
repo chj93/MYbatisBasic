@@ -31,12 +31,33 @@
     	diskFileUpload.setSizeMax(1024*1024*5);
     	List<FileItem>list=diskFileUpload.parseRequest(request);
     	BbsBean bbs=new BbsBean();
-    	bbs.setNo(Integer.parseInt(request.getParameter("no")));
-    	String job=request.getParameter("job");
     	
+    	String job=request.getParameter("job");
+		if(job.equals("modify"))    	
+			//수정
+    		bbs.setNo(Integer.parseInt(request.getParameter("no"))); 
+    	else{
+    	//new, reply
+    		bbs.setNo(AppleDao.getSequence());	
+    	}
     	String fixFile="";
     	for(FileItem fileItem:list){
-    		String name=fileItem.getFieldName();    	
+    		String name=fileItem.getFieldName(); 
+    		//답글달기 일경우 
+    		if(job.equals("reply")){
+    			if(name.equals("ref")){
+    				bbs.setRef(Integer.parseInt(fileItem.getString("EUC-KR")));
+    			}	
+    			if(name.equals("step")){
+    				bbs.setStep(Integer.parseInt(fileItem.getString("EUC-KR")));
+    			}	
+    			if(name.equals("lev")){
+    				bbs.setLev(Integer.parseInt(fileItem.getString("EUC-KR")));
+    			}	
+    			if(name.equals("pnum")){
+    				bbs.setPnum(Integer.parseInt(fileItem.getString("EUC-KR")));
+    			}	
+    		}
     		if(name.equals("title")){
     			bbs.setTitle(fileItem.getString("EUC-KR"));
     		}
@@ -69,15 +90,56 @@
     		}
     	}//for
     	
-    	bbs.setFilename(bbs.getFilename()==null?"noimage.jpg":bbs.getFilename());
+    	if(bbs.getNo()>0&& bbs.getFilename()!=null&&job.equals("modify")){
+    		BbsBean b=(BbsBean)AppleDao.bbsInfo(bbs.getNo());
+    		String []res1=b.getFilename().split("#");//원본이미지
+    		String []res2=bbs.getFilename().split("#");
+    		for(int i=0;i<res2.length;i++){
+    			res1[i]=res2[i];
+    		}
+    		String temp="";
+    		for(String s:res1){
+    			temp+=s.concat("#");
+    		}
+    		out.println(temp);
+    		bbs.setFilename(temp);
+    	}else{
+    	bbs.setFilename(bbs.getFilename()==null?"noimg.jpg":bbs.getFilename());
+    	}
+    	//out.println(job+"job");
     	
     	if(job.equals("new")){
-    		AppleDao.insertBBS(bbs);
-    		response.sendRedirect("list.jsp");
-    	}else if(job.equals("modify")){
+    		bbs.setRef(bbs.getNo());
+    		bbs.setPnum(bbs.getNo()); 
+    	}
+    	else if(job.equals("reply")){
+    		//updateStep
+    		//updateReply
+    		//
+    		bbs.setStep(bbs.getStep()+1);
+    		bbs.setLev(bbs.getLev()+1);
+
+    		//out.println(bbs);
+    		//out.println(job);
+    	}
+    	
+    	
+    	
+    	else if(job.equals("modify")){
     		AppleDao.updateBBS(bbs);
     		response.sendRedirect("info.jsp?no="+bbs.getNo()+"&page=1");
     	}
+    	if(!job.equals("modify")){   		
+			out.println(bbs);
+			out.println(job+"job"); 
+			AppleDao.insertBBS(bbs);
+			response.sendRedirect("list.jsp");
+       	}
+    	
+    	
+   		//AppleDao.insertBBS(bbs);
+   		//response.sendRedirect("list.jsp");
+    	
 	    //out.println(bbs);
 	    //out.println(job);
     }    
