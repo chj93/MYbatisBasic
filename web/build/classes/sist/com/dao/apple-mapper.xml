@@ -75,7 +75,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="bbsInfo" resultType="bbs"
 	 parameterType="java.lang.Integer">
 	 SELECT NO,WRITER,TITLE,CONTENTS,HIT,FILENAME,PASSWORD,
-	 TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE
+	 TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,REF,STEP,LEV,PNUM,REPLY
 	 FROM BBS_SI
 	 WHERE NO=#{VALUE}	
 	 </select>
@@ -119,8 +119,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 
 	<select id="getSequence" resultType="java.lang.Integer">
 		SELECT BBS_SI_SEQ.NEXTVAL FROM DUAL
-		
 	</select> 
+	
+	<update id="updateReply" parameterType="java.util.HashMap">
+		UPDATE BBS_SI SET
+		<choose>
+			<when test="job=='reply'">
+			REPLY=REPLY+1
+			</when>
+			<otherwise>
+			REPLY=REPLY-1
+			</otherwise>
+		</choose>
+		WHERE NO=#{num}
+	</update>
+	
 </mapper>
 
 

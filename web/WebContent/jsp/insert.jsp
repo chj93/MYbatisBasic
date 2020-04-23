@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="java.io.File"%>
 <%@page import="sist.com.model.BbsBean"%>
 <%@page import="org.apache.commons.fileupload.FileItem"%>
@@ -115,7 +116,11 @@
     	else if(job.equals("reply")){
     		//updateStep
     		//updateReply
-    		//
+    		HashMap<String,Object>map=new HashMap<String,Object>();
+    		map.put("num",bbs.getPnum());
+    		map.put("job",job); //==reply
+    		AppleDao.updateReply(map);
+    		
     		bbs.setStep(bbs.getStep()+1);
     		bbs.setLev(bbs.getLev()+1);
 

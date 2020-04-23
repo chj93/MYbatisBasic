@@ -21,10 +21,22 @@
 <script>
    function changeImge(obj){
 	   document.getElementById("ig").src=obj.src;
+   }	   
+   function deleteFun(obj){
+	   console.log(obj);
+	   console.log(obj.reply);
+	   if(obj.reply!=0){
+		   alert("댓글이 있으므로 삭제 할 수 없습니다.");
+		   return false;
+	   }else{
+		   
+	   }
+   }
+	  
 </script>
 </head>
 <body>   
-
+	
 	<div id="wrapper">
 		<div id="header">
 				<div class="topInfoWrap">
@@ -49,7 +61,26 @@
 						<span class="fr">
 							<span class="button"> <a href="password.jsp?no=<%=no%>&job=modify&page=<%=request.getParameter("page") %>">수정</a></span>
 							<span class="button">
-								<a href="password.jsp?no=<%=no%>&job=del&page=<%=request.getParameter("page") %>">삭제</a>
+<%-- 방법1					<%
+								if(bean.getReply()==0){
+								%>
+								
+									<a href="password.jsp?no=<%=no%>&job=del&page=<%=request.getParameter("page") %>">삭제</a>
+								<%} %> --%>
+
+								<%-- <a href="password.jsp?no=<%=no%>&job=del&page=<%=request.getParameter("page") %>">삭제</a> --%>
+								<%
+								if(bean.getReply()==0){
+								%>
+								<%-- <a href="password.jsp?no=<%=no%>&job=del&page=<%=request.getParameter("page")%>&pnum=<%=request.getParameter("pnum")%>">삭제</a> --%>
+								<a href="password.jsp?no=<%=no%>&job=del&page=<%=request.getParameter("page")%>&pnum=<%=bean.getPnum()%>">삭제</a>
+								<%
+								}else{
+								%>
+								<a href="javascript:deleteFun({no:<%=no%>,job:'del',page:'<%=request.getParameter("page")%>',reply:<%=bean.getReply()%>,pnum:<%=bean.getPnum()%>})">삭제</a>
+								<%
+								}
+								%>
 							</span>
 							<span class="button"><a href="edit.jsp?mode=reply&ref=<%=bean.getRef()%>&lev=<%=bean.getLev()%>&step=<%=bean.getStep()%>&pnum=<%=bean.getNo()%>">답글</a></span>
 							<!-- 현재화면이 부모의 화면이므로 no의 값을 보내면  pNum의 값 -->

@@ -240,6 +240,26 @@ public class AppleDao {
 		}
 		return null;
 	}
+
+	public static void updateReply(HashMap<String, Object>map){
+	//num,job
+		SqlSession sqlSession = null;
+		try {
+			sqlSession=sqlSessionFactory.openSession();
+			sqlSession.update("updateReply",map);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		}finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+	}
 	
 	
 
