@@ -1,0 +1,172 @@
+/* headerStyle_tablet_mobile.css */
+
+#main_header{
+	width: 100%;	height: 50px;
+	position: fixed;
+	z-index:100;
+	transition-duration: 0.5s;
+}
+
+	#main_header > div{
+		width: 100%;	
+	}
+	
+	#main_header.scroll{
+		background: #933436;
+	}
+
+/*************     로고       *************/
+		#logo{
+			width: 116px; height: 26px;
+			text-indent: -6000px;
+			overflow: hidden;
+			position: absolute;
+			left:15px; top: 12px;
+		}
+		
+			#logo > a{
+				width: 100%; height: 100%;
+				background: url(../images/logo_DH.png);
+			}
+			
+/*************     메인메뉴       *************/
+
+		/******  토글메뉴 구현  ******/
+		label.menu{
+			width: 30px;	height: 26px;
+			background: url(../images/icon_menu.png);
+			text-indent: -6000px; overflow: hidden;
+			position: absolute;
+			right: 15px; top:12px;
+		}
+		
+			input#toggle_menu + #wrap #main_nav{
+				position:fixed;
+				left:0; top: 0; right: 0; bottom: 0;
+				width: 100%;
+				overflow: hidden;
+				transition-duration:0.3s;
+				display: none;
+				background: rgba(0,0,0,0.4);
+			}
+	
+			input#toggle_menu:checked + #wrap #main_nav{
+				display: block;
+			}
+				
+				#main_nav > div{
+					background: #fff;
+					width: 90%;	height: 100%;
+					position: absolute;
+					right: 0; top: 0;
+				} 
+				
+				
+				/******  토글메뉴 스타일  ******/
+				
+					
+					/***   언어선택   ***/
+					#navtop_m{
+						width: 100%; height: 6.8%; /*50px*/
+						position: absolute;
+						top:0; left:0;
+					}
+						
+						#navtop_m > ul{
+							overflow: hidden;
+							display:inline;
+							position:absolute;
+							top: 25px; left: 25px;
+						}
+						
+							#navtop_m > ul > li{
+								float: left;
+							
+								font-weight: bold;
+							}
+							
+		
+							
+								#navtop_m > ul > li > a{}
+								
+								#navtop_m > ul > li > a.choice{
+									color: #ae3e40;
+								}
+								
+								#navtop_m > ul > li > span{}
+						
+						#navtop_m > label.menu_close{
+							
+							float: right;
+							position: absolute;
+							top: 12px; right: 15px;
+							width: 27px; height: 26px;
+							background: url(../images/icon_close.png) no-repeat;
+						}
+					/***   메뉴   ***/
+						
+					#main_nav > div > ul{
+						width: 90%; height:90%;
+						position: absolute;
+						bottom: 0; left: 5%;
+						overflow: auto;
+						text-align: center;
+					}
+					
+						#main_nav > div > ul > li{
+							width: 100%; 
+						}
+						
+						#main_nav > div > ul > li.active{
+							background: #ae3e40;
+						}
+							
+					
+						#main_nav > div > ul > li > h3{
+							font-size: 18px;
+							font-weight: bold;
+							line-height: 58px;
+							border-bottom: 1px solid #f4f4f4;
+						}
+						
+						#main_nav > div > ul > li:last-child > h3{
+							border-bottom: none;
+						}
+						
+						#main_nav > div > ul > li > h3:after{
+							content:">";
+							background: ;
+							position: absolute;
+							right: 10px;
+						}
+						
+						/****  세부메뉴  ****/
+						#main_nav > div > ul > li > ul{
+							display:none;
+							background: #f4f4f4;	
+						}
+						
+							#main_nav > div > ul > li > ul > li{
+								height: 30px;
+							}
+							
+								#main_nav > div > ul > li > ul > li > a{
+									font-weight: bold;
+									line-height: 30px;
+								}
+								
+						/***  .active 활성화  ***/
+						#main_nav > div > ul > li.active{
+							background: #ae3e40;
+							transition-duration: 0.3s;
+						}								
+							#main_nav > div > ul > li.active > h3{
+								color: #fff;	
+							}
+							
+							#main_nav > div > ul > li.active > ul{
+								display: block;	
+							}	
+					
+						
+					

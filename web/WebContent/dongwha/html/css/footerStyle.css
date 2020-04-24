@@ -1,0 +1,212 @@
+/* footerStyle.css */
+
+	#main_footer{
+		width:100%; position: relative;
+	}
+
+	@media screen and (max-width: 1366px){
+	#main_footer{
+		height: 410px;
+	}
+	}	
+
+/**********   #logo_web -웹용   **************/
+		@media screen and (min-width: 1367px){
+		#main_footer{
+			border-top: 1px solid #dcdcdc;
+			height: 340px;
+		}
+				
+		#logo_web{
+			width: 1230px; height: 100px;
+			margin: 0 auto;	
+			
+		}
+		
+			#logo_web > ul{
+				width: 1085px; height: 100%;
+				margin: 0 auto;
+			}
+			
+				#logo_web > ul > li{
+					float: left;
+					margin: 0 auto;
+				}
+				
+					#logo_web > ul > li > a{
+						
+					}
+				
+						#logo_web > ul > li > a > img{
+							height: 40px;
+							margin: 30px 0;	
+							padding-right:20px;
+						}
+						
+						#logo_web > ul > li > a > img.last{
+							padding: 0;
+						}
+						
+		}
+		
+
+		/** go top **/
+		#main_footer > a{
+			width:40px; height: 40px;
+			background: url(../images/icon_gotop.png);
+			text-indent:-6000px;
+			overflow:hidden;
+			margin: 0 auto;
+			position: absolute;
+			left: 50%;	margin-left: -20px;
+		}
+
+		@media screen and (min-width: 1367px){
+		#main_footer > a{
+			top : 80px;
+		}
+		}
+
+		@media screen and (max-width: 1366px){
+		#main_footer > a{
+			top: -20px;
+			z-index: 10;
+		}
+		}
+			
+			/*****  패밀리사이트 바로가기 모바일  *****/
+			@media screen and (max-width: 1366px){
+				
+			#fms_m{
+				width: 100%;
+				border-top: 1px solid #dcdcdc;
+			}
+
+			#fms_m > div{
+				width: 70%;	height:42px;
+				border: 1px solid #dcdcdc;
+				margin: 38px auto;
+				position: relative;
+			}
+
+				#fms_m > div > h2{
+					background: url(../images/icon_down.png) no-repeat;
+					background-position: 90% 50%;
+					font-size: 14px;
+					font-weight: bold;
+					text-align:center;
+					width: 100%;
+					line-height: 42px;
+					box-sizing: border-box;
+					position: absolute;
+					left: 0; top: 0;
+				}
+
+
+					#fms_m > div > ul{
+						width: 100%;	height: 0;
+						background: #fff;
+						
+						border-top: none;
+						position: absolute;
+						top: 41px; left: -1px;
+						overflow:hidden;
+					}
+
+					#fms_m > div.active> ul{
+						border: 1px solid #dcdcdc;
+						border-top: none;
+						height: 120px;
+						transition-duration: 0.3s;
+					}
+
+						#fms_m > div > ul > li{
+							line-height: 30px;
+							text-align:center;
+						}
+
+							#fms_m > div > ul > li > a{
+
+							} 	
+			}
+
+			#f_address{
+				width:100%;
+				text-align: center;
+				line-height: 24px;
+				
+			}
+
+			@media screen and (min-width: 1367px){
+			#f_address{
+				border-top: 1px solid #dcdcdc;
+				padding-top: 44px;
+			}			
+			}
+
+			#f_address > address{
+			
+			}
+				#f_address > address > #post{}
+					
+					#f_address > address > #post > p{
+					}
+
+					@media screen and (min-width: 1367px){
+					#f_address > address > #post > p{
+						display: inline;
+					}
+					}
+
+				#f_address > address > #tel{
+				
+				}
+				
+				@media screen and (max-width: 1366px){
+				#f_address > address > #tel{
+					margin-top: 10px;
+				}
+				}
+
+					#f_address > address > #tel > p{}
+
+				@media screen and (min-width: 1367px){
+				#f_address > address > #tel > p{
+					display: inline;
+				}
+				}
+
+					#f_address > address > #tel > span{
+					
+					}
+
+				@media screen and (max-width: 1366px){
+				#f_address > address > #tel > span{
+					display: none;
+				}
+				}
+
+
+				#f_address > ul{
+					overflow: hidden;
+					width: 130px; height: 32px;
+					margin: 25px auto;
+				}
+
+				#f_address > ul > li{
+					float: left;
+					margin-right: 17px;
+				}
+
+				#f_address > ul > li:last-of-type{
+					margin: 0;
+				}
+
+				#f_address > ul > li > a{}
+
+				#f_address > ul > li > a > img{
+					width: 32px; height: 32px;
+				}
+
+				#f_address > ul > p{}
+

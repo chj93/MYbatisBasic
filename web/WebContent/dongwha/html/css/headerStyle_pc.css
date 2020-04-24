@@ -1,0 +1,139 @@
+/* headerStyle_pc.css */
+
+#main_header{
+	width: 100%;	height: 80px;
+	position: fixed;
+	z-index:100;
+}
+
+#main_header:hover{
+	height: 487px;
+	background: url(../images/bg_header.png) repeat-x;
+	transition-duration:0.2s;
+}
+#main_header.scroll{
+	background: url(../images/bg_header.png) repeat-x;
+}
+
+	#main_header > div{
+		width: 1230px;	height: 80px;
+		margin: 0 auto;
+	}
+	
+/*************     로고       *************/
+		#logo{
+			float: left;
+			margin-top: 8px;
+			width: 70px; height: 65px;
+			background: url(../images/logo_red.png);
+			text-indent: -6000px;
+			overflow: hidden;
+		}
+		
+			#main_header > div > #logo > a{
+				width: 70px; height: 65px;
+				background: url(../images/logo_red.png);
+				text-indent: -6000px;
+				overflow: hidden;
+			}
+			
+			#main_header > div:hover >#logo > a{
+				background: url(../images/logo_white.png);
+				transition-duration:0.2s;
+			}
+			#main_header.scroll > div >#logo > a{
+				background: url(../images/logo_white.png);
+			}
+
+/*************     언어선택       *************/
+
+		#lang_web{
+			float: right;
+			margin-top: 47px;
+		}
+
+			#lang_web > a{
+				font-weight: bold;
+				display: inline;
+				color: #fff;
+			}
+			
+			#lang_web > a.choice{
+				text-decoration: underline;
+			}
+				
+			#lang_web > a:hover{
+				text-decoration: underline;
+			}
+			
+			#lang_web > span{
+				color: #fff;
+			}
+			
+
+			
+
+/*************     메인메뉴       *************/
+
+	#main_nav{
+		float: left;
+		margin-top: 47px;
+		margin-left: 98px;
+	}
+	
+		#main_nav > div{
+			
+		}
+		
+			#main_nav > div > ul{
+				
+			}
+
+			
+				#main_nav > div > ul > li{
+					float: left;
+					width: 129px;
+				}
+				
+				#main_nav > div > ul > li > a{
+					height: 33px;
+					color:#fff;
+					font-size: 18px;
+					font-weight: bold;
+					text-align: center;
+					box-sizing: border-box;
+					
+				}
+				
+				#main_nav > div > ul > li:hover > a{
+					border-bottom: 5px solid #cd9b9b;	
+					transition-duration: 0.3s;
+				}
+				
+				
+				/***  세부메뉴  ***/
+				
+				#main_nav > div > ul > li > ul{
+					height: 406px;	width: 100%;
+					display: none;	
+				}
+				
+				#main_header:hover > div > #main_nav > div> ul > li > ul{
+					height: 406px;	width: 100%;
+					display: block;	
+					transition-delay: 0.3s;
+				}				
+				
+					#main_nav > div > ul > li > ul > li{
+					   line-height: 36px;
+ 					   font-weight: bold;
+					}
+					
+						#main_nav > div > ul > li > ul > li > a{
+							text-align: center;
+						}
+					
+						#main_nav > div > ul > li > ul > li > a:hover{
+							text-decoration: underline;
+						}
+									
