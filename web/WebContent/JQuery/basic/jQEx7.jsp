@@ -47,6 +47,7 @@
     	 
     	 var output='';
     	 $.each(array2,function(index,dom){
+    		 //array2배열 속 데이터에 각각 function=기능을 수행하도록
     		 //dom==json의 주소
     		 console.log("NAME="+dom['name']+", LINK="+dom['link']);
     		 //alert(dom[index-1]);
