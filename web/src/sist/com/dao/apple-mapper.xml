@@ -134,6 +134,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE NO=#{num}
 	</update>
 	
+	<update id="updateStep" parameterType="java.util.HashMap">
+		UPDATE BBS_SI SET
+		STEP=STEP+1
+		WHERE REF=#{ref} AND STEP>#{step}
+	</update>
+	<!-- 넘어온 스텝보다 기존 DB스텝이 클 경우 증가시켜줌 -->
+	
 </mapper>
 
 

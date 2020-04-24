@@ -261,6 +261,25 @@ public class AppleDao {
 		}
 	}
 	
+	public static void updateStep(HashMap<String, Object>map) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession=sqlSessionFactory.openSession();
+			sqlSession.update("updateStep",map);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		}finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+	}
+	
 	
 
 }

@@ -114,11 +114,15 @@
     		bbs.setPnum(bbs.getNo()); 
     	}
     	else if(job.equals("reply")){
-    		//updateStep
     		//updateReply
     		HashMap<String,Object>map=new HashMap<String,Object>();
     		map.put("num",bbs.getPnum());
     		map.put("job",job); //==reply
+    		//updateStep
+    		map.put("ref",bbs.getRef());
+    		map.put("step",bbs.getStep());
+    		
+    		AppleDao.updateStep(map);
     		AppleDao.updateReply(map);
     		
     		bbs.setStep(bbs.getStep()+1);
