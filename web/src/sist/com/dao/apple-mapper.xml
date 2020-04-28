@@ -22,7 +22,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHEN HIT BETWEEN 51 AND 100 THEN 4
 		ELSE
 		5
-		END GRADE,
 		TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,FILENAME
 		FROM BBS_SI		
 	</sql>
@@ -140,7 +139,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE REF=#{ref} AND STEP>#{step}
 	</update>
 	<!-- 넘어온 스텝보다 기존 DB스텝이 클 경우 증가시켜줌 -->
+
+	<select id="idcheckProcess" parameterType="java.lang.String" resultType="java.lang.String">
+	  SELECT PASSWORD FROM SIMEMBER
+	  WHERE ID=#{VALUE}	
+	</select>	
 	
+	<select id="memberIdCheck" parameterType="java.lang.String"
+	 resultType="java.lang.String">
+	 SELECT ID FROM JOINMEMBER
+	 WHERE ID=#{VALUE}
+	 </select>
+	 
+	 <select id="selectZip" parameterType="java.lang.String" resultType="sist.com.model.zipBean">
+	 SELECT ZIPCODE,SIDO,GUGUN,DONG,NVL(BUNJI,' ')BUNJI
+	 FROM zipcode
+	 WHERE DONG LIKE '%'||#{VALUE}||'%'
+	 </select>
+
 </mapper>
 
 

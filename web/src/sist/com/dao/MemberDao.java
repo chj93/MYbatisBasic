@@ -1,0 +1,60 @@
+package sist.com.dao;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.sun.javafx.collections.MappingChange.Map;
+
+import sist.com.model.zipBean;
+
+public class MemberDao {
+	private static SqlSessionFactory sqlSessionFactory;
+	static {
+		sqlSessionFactory = SqlSessionFactoryManager.getSqlSessionFactory();
+	}
+	
+	public static boolean memberIdCheck(String id) {
+		SqlSession sqlsession=null;
+		String rsId=null;
+		try {
+			sqlsession=sqlSessionFactory.openSession();
+			rsId=sqlsession.selectOne("memberIdCheck", id);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				if(sqlsession!=null)sqlsession.close();				
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return rsId==null||rsId.equals("")?false:true;
+	}//memberIdCheck
+	
+	public static List<zipBean> selectZip(String dong) {
+		SqlSession sqlsession=null;
+		try {
+			sqlsession=sqlSessionFactory.openSession();
+			return sqlsession.selectList("selectZip",dong);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlsession.close();
+		}
+		
+		return null;
+	}
+}
+
+
+
+
+
+
+

@@ -8,8 +8,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
 <meta http-equiv="imagetoolbar" content="no" />
 <link href="../css/contents.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../public/js/jquery-1.6.4.min.js"></script>
-<script type="text/javascript" src="../public/js/design.js"></script>
+<script type="text/javascript" src=" https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script  src="/web/script/member.js" charset="UTF-8"></script>
+
 </head>
 <body >
 	<div id="wrapper">
@@ -28,13 +29,13 @@
 			<div class="gnbSubWrap">
 				
 			</div>
-		</div>
-		
+		</div>		
 		<div id="container">
 			<div id="contentsWrap" class="contentsWrap">
 				<div class="contents">
 					<h1 class="title">회원가입</h1>
 					<div class="tbWrapRt" style="padding-right: 250px; margin-top: 100px;">
+					<form action="" name="joinFrm" method="post">
 						<table class="bbsWrite mgb10"  >
 								<caption></caption>
 								<colgroup>
@@ -48,7 +49,11 @@
 								</tr>
 								<tr>
 									<th>아이디</th>
-									<td><input type="text" name="" class="inputText" size="30" /> <span class="buttonFuc"><a href="#">중복체크</a></span></td>
+									<td>
+									<!-- <input type="text" name="" class="inputText" size="30" /> <span class="buttonFuc"><a href="javascript:idCheckFun()">중복체크</a></span> -->
+									<input type="text" name="id" readonly="readonly" class="inputText" size="30" /> <span class="buttonFuc"><a href="#" id="idCheck">중복체크</a></span>
+									
+									</td>
 								</tr>
 								<tr>
 									<th>비밀번호</th>
@@ -77,10 +82,11 @@
 									<th>주소</th>
 									<td class="alignM">
 										<p class="mgb3">
-											<input type="text" name="" class="inputText" size="10" /> - <input type="text" name="" class="inputText" size="10" /> <span class="buttonFuc"><a href="#">우편번호</a></span>
+											<input type="text" name="post1" class="inputText" size="10" /> - <input type="text" name="post2" class="inputText" size="10" /> <span class="buttonFuc"><a href="javascript:sendPost()">우편번호</a></span>
 										</p>
 										<p class="mgb3">
-											<input type="text" name="" class="inputText" size="50" />
+											<input type="text" name="address1" class="inputText" size="50" readonly="readonly"/>
+											<input type="text" name="address2" class="inputText" size="50" />
 										</p>
 									</td>
 								</tr>
@@ -106,6 +112,7 @@
 								</tr>
 								</tbody>
 							</table>
+							</form>
 							<div class="agr mgb15">
 								<span class="button"><a href="#">등록</a></span>
 							</div>
