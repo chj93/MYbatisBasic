@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<finshers>
+	<runner>
+		<fname>수연</fname>
+		<lname>이</lname>
+		<gender>f</gender>
+		<time>8.12</time>
+	</runner>
+	<runner>
+		<fname>혜진</fname>
+		<lname>최</lname>
+		<gender>f</gender>
+		<time>12.32</time>
+	</runner>
+	<runner>
+		<fname>성화</fname>
+		<lname>정</lname>
+		<gender>m</gender>
+		<time>13.21</time>
+	</runner>
+	<runner>
+		<fname>명모</fname>
+		<lname>임</lname>
+		<gender>m</gender>
+		<time>9.45</time>
+	</runner>
+	<runner>
+		<fname>지혜</fname>
+		<lname>이</lname>
+		<gender>m</gender>
+		<time>10.51</time>
+	</runner>
+	<runner>
+		<fname>서현</fname>
+		<lname>최</lname>
+		<gender>f</gender>
+		<time>18.21</time>
+	</runner>
+	<runner>
+		<fname>인찬</fname>
+		<lname>박</lname>
+		<gender>m</gender>
+		<time>17.37</time>
+	</runner>
+</finshers>

@@ -93,7 +93,29 @@
 								<div style="height: 120px; width: 300; overflow: auto;">
 									<table width="100%" height="120" cellpadding="0"
 										cellspacing="0" bgcolor="#FFFFFF" class="gray_blue">
-								
+										<%
+										  if(dong!=null){
+											  for(int i=0;i<list.size();i++){
+												 zipBean bean=list.get(i);
+												 String addr=bean.getZipcode().trim()+"-"+bean.getSido().trim()+bean.getGugun().trim()+bean.getDong().trim();
+										%>
+										<tr>
+											<td height="8"></td>
+										</tr>
+										<tr>
+											<td height="20" style="padding-left: 25;width: 200px;">
+											<a href="#" name="addr">
+											<%=addr %>
+											</a>
+											</td>
+										</tr>
+										<%
+											  }
+										  }
+										%>										
+										
+										
+<%-- 								
 								<%if(dong!=null){ %>
 										<tr id="th1">
 											<th>우편번호</th>
@@ -104,29 +126,31 @@
 										</tr>
 								
 								<%	for (zipBean z : list) {%>
-										
+		
 										<a href="#">
 											<tr>
 												<td height="20" style="padding-left: 25;width: 200px;">
-													<%=z.getZipcode() %>
+													<%=z.getZipcode().trim() %>
 												</td>
 												<td height="20" style="padding-left: 25;width: 200px;">
-													<%=z.getSido() %>
+													<%=z.getSido().trim() %>
 												</td>
 												<td height="20" style="padding-left: 25;width: 200px;">
-													<%=z.getGugun() %>
+													<%=z.getGugun().trim() %>
 												</td>
 												<td height="20" style="padding-left: 25;width: 200px;">
-													<%=z.getDong() %>
+													<%=z.getDong().trim() %>
 												</td>
 												<td height="20" style="padding-left: 25;width: 200px;">
-													<%=z.getBunji() %>
+													<%=z.getBunji().trim() %>
 												</td>
 											</tr>	
 										</a>
 														
 									<%} %>
-								<%} %>	
+								<%} %>	 --%>
+								
+								
 									</table>
 								</div>
 							</td>

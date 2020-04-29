@@ -34,6 +34,29 @@ $(function(){
 		//document.serchFrm.submit();
 		$("form[name='searchFrm']").submit();
 	});
+	
+	
+	$("a[name='addr']").click(function(){
+		//alert($(this).text());
+		//alert($(this).text().split("-")[0]);
+		//console.log($(this).text().split("-")[1]);
+		var add=$(this).text().trim();
+		
+		window.opener.document.joinFrm.post1.value=add.split("-")[0];
+		window.opener.document.joinFrm.post2.value=add.split("-")[1];
+		window.opener.document.joinFrm.address1.value=add.split("-")[2];
+		self.close();
+	});
+	
+	$("a#send").click(function(){
+		//제약사항
+		$("input[name='password']").val($("input[type='password']").val());
+		//"input[name='password']"에 "input[type='password']"값을 전송
+		
+		$("input[name='birth']").val($("input[name='year']").val()+"/"+$("input[name='month']").val()+"/"+$("input[name='day']").val());
+		$("form").submit();
+		
+	});
 });
 
 
