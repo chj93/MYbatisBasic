@@ -4726,6 +4726,6 @@
 	<servlet-mapping>
 		<servlet-name>Action</servlet-name>
 		<url-pattern>*.do</url-pattern>
-		<!--*.do가 실행되면   Action을 찾아서 Action.interpace-->
+		<!--*.do가 실행되면   Action을 찾아서 Action.interpace / * == 뭘입력해도 실행됨-->
 	</servlet-mapping>
 </web-app>

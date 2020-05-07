@@ -1,5 +1,7 @@
 package sist.com.action;
 
-public interface Action {
+import javax.servlet.http.HttpServletRequest;
 
+public interface Action {
+	public ActionForWard execute(HttpServletRequest request);
 }

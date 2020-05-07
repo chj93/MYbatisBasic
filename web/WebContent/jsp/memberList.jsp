@@ -9,9 +9,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
 <meta http-equiv="imagetoolbar" content="no" />
-<link href="../css/contents.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/contents.css" rel="stylesheet" type="text/css" />
 </head>
 <body >
+
 <%
 	request.setCharacterEncoding("EUC-KR");
 	List<MemberBean> list=null;
@@ -24,7 +25,7 @@
 							<span class="fir">2012.05.17</span>
 							<span>13:30:22</span>
 							<span><em>OOO님</em> 좋은 하루 되세요</span>
-							<a href="" class="btnLogout"><img src="../img/common/btn_logout.gif" alt="로그아웃" /></a>
+							<a href="" class="btnLogout"><img src="/web/img/common/btn_logout.gif" alt="로그아웃" /></a>
 						</div>
 					</div>
 				</div>
@@ -112,8 +113,8 @@
 					</table>
 
 					<div class="paging">
-						<a href="#"><img src="../img/button/btn_first.gif" alt="처음페이지" /></a>
-						<a href="#"><img src="../img/button/btn_prev.gif" alt="이전" /></a>
+						<a href="#"><img src="/web/img/button/btn_first.gif" alt="처음페이지" /></a>
+						<a href="#"><img src="/web/img/button/btn_prev.gif" alt="이전" /></a>
 						
 						<span>
 							<a href="#">1</a>
@@ -127,8 +128,8 @@
 							<a href="#">9</a>
 						</span>				
 
-						<a href="#"><img src="../img/button/btn_next.gif" alt="다음" /></a>
-						<a href="#"><img src="../img/button/btn_last.gif" alt="마지막페이지" /></a>
+						<a href="#"><img src="/web/img/button/btn_next.gif" alt="다음" /></a>
+						<a href="#"><img src="/web/img/button/btn_last.gif" alt="마지막페이지" /></a>
 
 					</div>
 				</div>
