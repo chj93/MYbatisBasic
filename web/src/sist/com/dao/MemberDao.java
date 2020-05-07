@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.sun.javafx.collections.MappingChange.Map;
 
+import sist.com.model.BbsBean;
+import sist.com.model.MemberBean;
 import sist.com.model.zipBean;
 
 public class MemberDao {
@@ -49,6 +51,25 @@ public class MemberDao {
 		}
 		
 		return null;
+	}
+	
+	public static void insertJoin(MemberBean bean) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			sqlSession.insert("insertJoin", bean);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		} finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
 	}
 }
 

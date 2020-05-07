@@ -8,6 +8,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
       <typeAlias type="sist.com.model.EmpBean" alias="emp"/>
       <typeAlias type="sist.com.model.StudentBean" alias="stud"/>
       <typeAlias type="sist.com.model.BbsBean" alias="bbs"/>
+      <typeAlias type="sist.com.model.MemberBean" alias="member"/>
     </typeAliases>
     <!-- DB연동 -->
     <environments default="development">

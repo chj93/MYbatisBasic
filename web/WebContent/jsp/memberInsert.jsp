@@ -1,3 +1,5 @@
+<%@page import="sist.com.dao.MemberDao"%>
+<%@page import="sist.com.model.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -21,8 +23,11 @@ request.setCharacterEncoding("EUC-KR");
 	<%=member %>
 	<!-- dao ºÎ¸£±â -->
 	<%
-	//response.sendRedirect("memberSuccess.jsp");
-	%>
+	MemberDao.insertJoin(member);
+   response.sendRedirect("memberSuccess.jsp");
 	
+	%>
+
+
 </body>
 </html>

@@ -51,18 +51,21 @@
 									<th>아이디</th>
 									<td>
 									<!-- <input type="text" name="" class="inputText" size="30" /> <span class="buttonFuc"><a href="javascript:idCheckFun()">중복체크</a></span> -->
-									<input type="text" name="id" readonly="readonly" class="inputText" size="30" /> <span class="buttonFuc"><a href="#" id="idCheck">중복체크</a></span>
-									
+									<input type="text" name="id" id="id" class="inputText" size="30" /> 
+									<span class="buttonFuc">
+										<a href="#" id="idCheck">중복체크</a>
+									</span>
+									<span id="rsp"></span>
 									</td>
 								</tr>
 								<tr>
 									<th>비밀번호</th>
-									<td><input type="password" name="password1" class="inputText" size="30" /></td>
+									<td><input type="password" name="password1" class="inputText" size="30" id="password1" /></td>
 								</tr>
 								<tr>
 									<th>비밀번호 확인</th>
 									<td>
-										<input type="password" name="password2" class="inputText" size="30" />
+										<input type="password" name="password2" class="inputText" size="30" id="password2"/>
 										<input type="hidden" name="password" class="inputText" size="30" />
 									</td>
 								</tr>
@@ -92,6 +95,7 @@
 										<p class="mgb3">
 											<input type="text" name="address1" class="inputText" size="50" readonly="readonly"/>
 											<input type="text" name="address2" class="inputText" size="50" />
+											<input type="hidden" name="address" />
 										</p>
 									</td>
 								</tr>
@@ -102,8 +106,8 @@
 										<input type="text" name="email1" class="inputText" size="12" />
 										@
 										<input type="text" name="email2" disabled="disabled" />
-										<select id="" name="email3">
-											<option selected="selected">선택하세요.</option>
+										<select id="sel" name="email3">
+											<option selected="selected" value="empty">선택하세요.</option>
 											<option value="direct">직접입력</option>
 											<option value="gmail.com">gmail.com</option>
 											<option value="naver.com">naver.com</option>
@@ -114,10 +118,10 @@
 								<tr>
 									<th>전화번호</th>
 									<td>
-										<input type="text" name="tel1" class="inputText" size="10" /> - 
-										<input type="text" name="tel2" class="inputText" size="10" /> - 
-										<input type="text" name="tel3" class="inputText" size="10" />
-										<input type="hidden" name="tel" />
+										<input type="text" name="tel1" id="tel1" class="inputText" size="10" /> - 
+										<input type="text" name="tel2" id="tel2" class="inputText" size="10" /> - 
+										<input type="text" name="tel3" id="tel3" class="inputText" size="10" />
+										<input type="hidden" name="tel" id="tel" />
 									</td>
 								</tr>
 								<tr>

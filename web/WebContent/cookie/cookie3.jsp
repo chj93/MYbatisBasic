@@ -1,4 +1,3 @@
-<%@page import="sist.com.model.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -12,12 +11,19 @@
 	
 	});
 </script>
+<%
+	String color="WHITE";
+	Cookie [] cookie=request.getCookies();
+	if(cookie!=null&&cookie.length>0){
+		for(int i=0; i<cookie.length;i++){
+			if(cookie[i].getName().trim().equalsIgnoreCase("color")){
+				color=cookie[i].getValue();
+			}
+		}
+	}
+%>
 </head>
-<body>
-	<h1>${member.name}님 회원가입성공</h1>
-	<%= ((MemberBean) session.getAttribute("member")).getName() %>님 성공
-    <h2>LOGIN PAGE MOVE</h2>
-   
-    <%=((MemberBean) session.getAttribute("member")) %>
+<body bgcolor="<%=color%>">
+
 </body>
 </html>

@@ -157,6 +157,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 WHERE DONG LIKE '%'||#{VALUE}||'%'
 	 </select>
 
+	<insert id="insertJoin"  parameterType="member">
+<!-- 	
+		INSERT INTO JOINMEMBER(NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME)
+		VALUES(#{no},#{id},#{password},#{gender},#{birth},#{address},#{email},#{tel},#{cp},SYSDATE,#{name})
+-->
+		INSERT INTO JOINMEMBER(NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME)
+		VALUES(JOINMEMBER_SEQ.NEXTVAL,#{id},#{password},#{gender},#{birth},#{address},#{email},#{tel},#{cp},SYSDATE,#{name})
+	</insert>
 </mapper>
 
 
