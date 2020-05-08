@@ -162,9 +162,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO JOINMEMBER(NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME)
 		VALUES(#{no},#{id},#{password},#{gender},#{birth},#{address},#{email},#{tel},#{cp},SYSDATE,#{name})
 -->
-		INSERT INTO JOINMEMBER(NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME)
-		VALUES(JOINMEMBER_SEQ.NEXTVAL,#{id},#{password},#{gender},#{birth},#{address},#{email},#{tel},#{cp},SYSDATE,#{name})
+	INSERT INTO JOINMEMBER(NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME)
+	VALUES(JOINMEMBER_SEQ.NEXTVAL,#{id},#{password},#{gender},#{birth},#{address},#{email},#{tel},#{cp},SYSDATE,#{name})
 	</insert>
+	
+	<select id="selectMember" resultType="member">
+	SELECT NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,TO_CHAR(REGDATE,'YYY/MM/DD')REGDATE,NAME
+	FROM JOINMEMBER
+	ORDER BY NO DESC
+	</select>
+	
 </mapper>
 
 

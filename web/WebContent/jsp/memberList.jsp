@@ -2,6 +2,8 @@
 <%@page import="sist.com.model.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<!--  prefix="c" == 접두사 원하는 것 작성  모델2 mvc사용하기위한 지시자-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,7 +14,7 @@
 <link href="/web/css/contents.css" rel="stylesheet" type="text/css" />
 </head>
 <body >
-${id}
+<%-- ${member} --%>
 	<div id="wrapper">
 		<div id="header">
 				<div class="topInfoWrap">
@@ -101,10 +103,25 @@ ${id}
 						</thead>
 
 						<tbody>
+						<!-- 반복문  var="i" begin="1" end="10" step="1" items=목록
+							i 변수를 1부터 10까지 1씩 증가
+						-->
+						<c:forEach var="i" items="${member}" varStatus="cnt">
 						<tr>
-							<!-- 목록 -->
+							<td>${cnt.count}</td>
+							<!--  -->
+							<td>${i.id}</td>
+							<td>${i.password}</td>
+							<td>${i.gender}</td>
+							<td>${i.birth}</td>
+							<td>${i.address}</td>
+							<td>${i.email}</td>
+							<td>${i.tel}</td>
+							<td>${i.cp}</td>
+							<td>${i.regdate}</td>
+							<td>${i.name}</td>
 						</tr>
-						
+						</c:forEach>
 						</tbody>
 					</table>
 

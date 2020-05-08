@@ -71,6 +71,21 @@ public class MemberDao {
 			}
 		}
 	}
+	
+	public static List<MemberBean>selectMember(){
+		SqlSession sqlsession=null;
+		try {
+			sqlsession=sqlSessionFactory.openSession();
+			return sqlsession.selectList("selectMember");
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlsession.close();
+		}
+		
+		return null;
+	}
 }
 
 
