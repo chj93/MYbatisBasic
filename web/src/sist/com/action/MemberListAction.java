@@ -15,6 +15,8 @@ public class MemberListAction implements Action{
 	@Override
 	public ActionForWard execute(HttpServletRequest request) {
 		// TODO Auto-generated method stub
+		request.setAttribute("id", "CHJ");
+		
 		return new ActionForWard(path,redirect);
 	}
 

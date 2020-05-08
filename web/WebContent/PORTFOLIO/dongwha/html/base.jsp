@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>기업소개</title>
 <link rel="stylesheet" href="css/master.css"/>
+<link rel="stylesheet" href="css/introduction.css" media="screen and (min-width: 1367px)" />
+<link rel="stylesheet" href="css/introduction_tablet_mobile.css" media="screen and (max-width: 1367px)" />
 <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
@@ -22,7 +26,7 @@
 			<div>
 				<!--로고-->
 				<h1 id="logo">
-					<a href="index.html">동화제약</a>
+					<a href="index.jsp">동화제약</a>
 				</h1>
 				
 				<!--언어선택 웹-->
@@ -178,6 +182,15 @@
 			</div>
         </header>
         
+		<section id="banner">
+			<h3>
+				좋은약이 아니면 만들지 마라.<br />
+				동화는 동화식구 모두의 것이니 온 식구가 정성을 다해 다 같이 잘 살 수 있는 기업으로 이끌어라."<br />
+				5대사장 보당 윤창식"
+			</h3>
+		</section>
+        
+        
         <!--footer-->
         <footer id="main_footer">
             <div id="logo_web"><!--웹용-->
@@ -246,6 +259,6 @@
                     <p>Copyright(c) DONG WHA PHARM. CO., LTD.</p>
                 </div>
         </footer>        
- 	</div><!--//#wrap->
+ 	</div>
 </body>
 </html>

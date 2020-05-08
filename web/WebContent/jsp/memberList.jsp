@@ -12,11 +12,7 @@
 <link href="/web/css/contents.css" rel="stylesheet" type="text/css" />
 </head>
 <body >
-
-<%
-	request.setCharacterEncoding("EUC-KR");
-	List<MemberBean> list=null;
-%>
+${id}
 	<div id="wrapper">
 		<div id="header">
 				<div class="topInfoWrap">

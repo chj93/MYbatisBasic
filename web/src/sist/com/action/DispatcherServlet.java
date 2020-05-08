@@ -16,21 +16,22 @@ public class DispatcherServlet extends HttpServlet{
 		//super.service(req, resp);
 		//System.out.println("DispatcherServlet");
 		
-		request.setCharacterEncoding("EUC-KR");
-		//post방식일떄만 이곳에서.
-		
+		request.setCharacterEncoding("EUC-KR"); //post방식일떄만 이곳에서.
+		//~~.do로 들어오는값들을 cmd로 받아서 각각 서비스되도록
 		String cmd=request.getParameter("cmd");
 		Action action = ActionFactory.getAction(cmd);
 		
 		ActionForWard af=action.execute(request);
 		if(af.isRedirect()) {
+		//af.isRedirect()== true 리다이렉트
 		//서블릿-> 개별 서비스
 		//url이 바뀔때 마다 서비스가 바뀌기 때문에 request, response는 다시! -> url이 변동되지 않도록
 		//세션, 어플리케이션, 디스패쳐, 쿠키는  X
 			//af.isRedirect()가 true면 리다이렉트로
 			response.sendRedirect(af.getPath());
+			
 		}else {
-			//af.isRedirect()가 true면 디스페쳐로
+			//af.isRedirect()== false 디스페쳐
 			//url 바뀜.
 			RequestDispatcher rd=request.getRequestDispatcher(af.getPath());
 			rd.forward(request, response);
