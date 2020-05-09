@@ -1,0 +1,67 @@
+/* common.css */
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo');
+
+@font-face{
+	font-family: 'NanumMyeongjo';
+	src: url('../font/NanumMyeongjo-Regular.ttf') format('truetype');
+}
+
+*{margin: 0; padding: 0;}
+html, body, table, tr, th, td, input, select, option, textarea, button{
+	font: 14px 'NanumMyeongjo', sans-serif;
+	color: #000;
+}
+h1, h2, h3, h4, h5, h6{
+	font-size: 1.0em;
+	font-weight: normal;
+}
+img, iframe, fieldset, frameset, input, select, option, textarea, button{
+	border: 0 none;
+	border-radius: 0;
+}
+table, tr, th, td{
+	border-collapse: collapse;
+}
+ul, ol, li{
+	list-style: none;
+}
+b, strong{
+	font-weight: normal;
+}
+i, em, address{
+	font-style: normal;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+a, img, label{
+	display: block;
+}
+legend, hr,input#toggle_menu, input#more{
+	display: none;
+}
+
+.skip, .blind{
+	display: block;
+	height: 0;
+	overflow: hidden;
+
+	position: absolute;
+	top: -6000px;
+}
+
+/**  PC  **/
+@media screen and (min-width: 1367px){
+	label.menu, #navtop_m, #main_nav > div > ul > li > h3, #fms_m{
+		display:none;	
+	}
+}
+
+/**  테블릿, 모바일  **/
+@media screen and (max-width: 1366px){
+	#lang_web, #main_nav > div > ul > li > a, #logo_web{
+		display:none;	 
+	}
+}

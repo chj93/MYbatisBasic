@@ -1,0 +1,4 @@
+/* headerStyle.css */
+
+@import url(headerStyle_pc.css) screen and ( min-width: 1367px);
+@import url(headerStyle_tablet_mobile.css) screen and ( max-width: 1367px);
