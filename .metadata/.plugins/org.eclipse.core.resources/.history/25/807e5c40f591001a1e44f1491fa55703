@@ -41,11 +41,10 @@
 					<a href="#">EN</a>
 				</nav>
 				 -->
-				 
 				<nav id="lang_web">
-					<a href="#">로그인</a>
+					<a href="#" class="choice">KO</a>
 					<span>|</span>
-					<a href="#">회원가입</a>
+					<a href="#">EN</a>
 				</nav>
 				
 				<script>

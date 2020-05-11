@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +9,6 @@
 <link rel="stylesheet" href="css/master.css"/>
 <link rel="stylesheet" href="css/introduction.css" media="screen and (min-width: 1367px)" />
 <link rel="stylesheet" href="css/introduction_tablet_mobile.css" media="screen and (max-width: 1367px)" />
-
 <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
@@ -25,7 +26,7 @@
 			<div>
 				<!--로고-->
 				<h1 id="logo">
-					<a href="index.html">동화제약</a>
+					<a href="index.jsp">동화제약</a>
 				</h1>
 				
 				<!--언어선택 웹-->
@@ -34,7 +35,7 @@
 					<span>|</span>
 					<a href="#">EN</a>
 				</nav>
-				<!--스크롤시 메뉴 색상 바뀌게-->
+				
 				<script>
                     
                     $(function(){
@@ -78,10 +79,10 @@
 						
 						<ul>
 							<li>
-								<a href="introduction.html">소개</a>
+								<a href="#">소개</a>
 								<h3>소개</h3>
 								<ul>
-									<li><a href="introduction.html"  style="color: #933436">기업소개</a></li>
+									<li><a href="#">기업소개</a></li>
 									<li><a href="#">CEO인사말</a></li>
 									<li><a href="#">연혁</a></li>
 									<li><a href="#">사가</a></li>
@@ -180,7 +181,7 @@
 				</nav><!--//#main_nav-->
 			</div>
         </header>
-		
+        
 		<section id="banner">
 			<h3>
 				좋은약이 아니면 만들지 마라.<br />
@@ -188,70 +189,8 @@
 				5대사장 보당 윤창식"
 			</h3>
 		</section>
-
-		<div id="contents_wrap">
-			<div class="title">
-				<h4><a href="index.html">HOME</a>
-				>
-				<a href="introduction.html">기업소개</a>
-				</h4>
-				<h3>기업소개</h3>
-			</div>
-
-			<section id="introduction_wrap">
-				<div id="ideology">
-					<ul>
-						<li class="hover_none">
-							<h4>동화의 이념</h4>
-						</li>
-						<li class="hover_view">
-							<a href="#" class="">동화의 이념 바로가기</a>
-						</li>
-					</ul>
-					<a href="#" class="">동화의 이념 바로가기</a>
-				</div>
-
-				<div id="history" class="style1">
-						<ul>
-							<li class="hover_none">
-								<h4 style="color:#000;">역사속의 동화</h4>
-							</li>
-							<li class="hover_view">
-								<p>
-									1897년 9월 25일 창립 이래 동일상호, 동일제품을 유지함으로써,<br />
-									최고(最古)의 제조회사 및 최고(最古)의 제약회사가 되었으며,<br />
-									국내 최초의 신약인 활명수도 국내 최장수 의약품으로 기록됐다.
-								</p>
-								<a href="#">역사속의 동화 바로가기</a>
-							</li>
-						</ul>
-						<a href="#">역사속의 동화 바로가기</a>
-					</div>
-
-					<div id="gasong" class="style1">
-							<ul>
-								<li class="hover_none">
-									<h4>가송재단</h4>
-								</li>
-								<li class="hover_view">
-									<h6>사회와의 아름다운 동행</h6>
-									<p>
-										"기업 이윤은 사회에 환원해야 한다" 는 철학으로<br />
-										가송 윤광열 동화약품 명예회장과 부인 김순녀 여사의 사재출연을 통해<br /> 
-										2008년 4월 설립 되었습니다.
-									</p>
-									<a href="#">가송재단 소개 바로가기</a>
-								</li>
-							</ul>
-							<a href="#">가송재단 소개 바로가기</a>
-						</div>
-
-
-			</section>
-
-		</div>
-
-
+        
+        
         <!--footer-->
         <footer id="main_footer">
             <div id="logo_web"><!--웹용-->

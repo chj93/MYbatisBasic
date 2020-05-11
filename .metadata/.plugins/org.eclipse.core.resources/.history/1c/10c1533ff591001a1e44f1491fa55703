@@ -34,18 +34,11 @@
 					<a href="index.jsp">동화제약</a>
 				</h1>
 				
-<!-- 				언어선택 웹
+				<!--언어선택 웹-->
 				<nav id="lang_web">
 					<a href="#" class="choice">KO</a>
 					<span>|</span>
 					<a href="#">EN</a>
-				</nav>
-				 -->
-				 
-				<nav id="lang_web">
-					<a href="#">로그인</a>
-					<span>|</span>
-					<a href="#">회원가입</a>
 				</nav>
 				
 				<script>
