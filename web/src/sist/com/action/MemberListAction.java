@@ -1,5 +1,7 @@
 package sist.com.action;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 
 import sist.com.dao.MemberDao;
@@ -17,7 +19,21 @@ public class MemberListAction implements Action{
 	@Override
 	public ActionForWard execute(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		request.setAttribute("member",MemberDao.selectMember());
+		String query=request.getParameter("query");
+		String data=request.getParameter("data");
+		HashMap<String, Object>map=new HashMap<String,Object>();
+		map.put("query",query);
+		map.put("data",data);
+		
+		System.out.println(query+" "+ data);
+		
+		request.setAttribute("member",MemberDao.selectMember(map));
+		
+		if(query!=null&&data!=null) {
+			path="jsp/memberView.jsp";
+		}
+		//System.out.println(path);
+		
 		return new ActionForWard(path,redirect);
 	}
 

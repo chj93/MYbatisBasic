@@ -4,7 +4,7 @@ public class ActionFactory {
 	public static Action getAction(String cmd) {
 		Action action = null;
 		if(cmd.equals("login")) {
-			action=new AdminLoginAction("jsp/admin.jsp",true);
+			action=new AdminLoginAction("",false);
 			//true 로 가면 리다이렉트 -> url 변화 x 값을가지고 넘어갈수 x
 			//false 디스패쳐
 			
@@ -13,6 +13,13 @@ public class ActionFactory {
 			action=new MemberListAction("jsp/memberList.jsp",false);
 			//true 일경우 url이 do로 안넘어가니까 값이 넘어가지 X
 			//false 디스패쳐   url이 do로 전달. -> 값을 불러들일 수 있음
+		}else if(cmd.equals("empList")) {
+			action=new AjaxList("JQuery/ajaxData/data8.jsp",false);
+		}else if(cmd.equals("chart")) {
+			action=new AjaxList("JQuery/ajaxData/data9.jsp",false);
+		}else if(cmd.equals("member")) {
+			//action=new MemberListAction("JQuery/ajaxData/data10.jsp", false);
+			action=new MemberAction("JQuery/ajaxData/data10.jsp", false);
 		}
 		return action;
 	}

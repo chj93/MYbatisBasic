@@ -166,9 +166,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	VALUES(JOINMEMBER_SEQ.NEXTVAL,#{id},#{password},#{gender},#{birth},#{address},#{email},#{tel},#{cp},SYSDATE,#{name})
 	</insert>
 	
-	<select id="selectMember" resultType="member">
+	<select id="selectMember" resultType="member" parameterType="java.util.HashMap">
 	SELECT NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,TO_CHAR(REGDATE,'YYY/MM/DD')REGDATE,NAME
 	FROM JOINMEMBER
+	<if test="query!=null and data!=null">
+		<where>
+		${query} LIKE '%'||#{data}||'%'
+		</where>
+	</if>
 	ORDER BY NO DESC
 	</select>
 	

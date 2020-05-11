@@ -12,6 +12,37 @@
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
 <meta http-equiv="imagetoolbar" content="no" />
 <link href="/web/css/contents.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src=" https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("a#searchBtn").click(function(){
+		if($("select#query").val()=='empty'||$("input#data").val().length==0){
+			alert('검색정보를 선택하세요.');
+			$("select#query").prop("selectedIndex",0);
+			$("input#data").val('');
+			return false;
+		}
+		//$("form").submit();
+		//memberList.do?cmd=memberList
+		$.ajax({
+			url:'memberList.do',
+			dataType:'json',
+			type:'POST',
+			contentsType:'application/x-www-form-urlencoded;charset=UTF-8',
+			data:{cmd:'memberList', query:$("select#query").val(),data:$("input#data").val()},
+			success:function(v){
+				console.log(v);
+			},error:function(){
+				alert('에러');
+			}
+		});
+		
+	});
+	
+});
+
+
+</script>
 </head>
 <body >
 <%-- ${member} --%>
@@ -37,42 +68,47 @@
 					<h1 class="title">게시판 리스트</h1>
 					<div class="btnSet clfix mgb15">
 						<span class="fr">
-							<span class="button"><a href="#">검색</a></span>
+							<span class="button"><a href="#" id="searchBtn">검색</a></span>
 							<span class="button"><a href="#">글쓰기</a></span>
+							<span class="button"><a href="#">삭제</a></span>
 						</span>
 					</div>
-
-					<table class="bbsWrite mgb35">
-						<caption></caption>
-						<colgroup>
-							<col width="30" />
-							<col width="130" />
-							<col width="130" />
-							<col width="130" />
-							<col width="130" />
-							<col width="200" />
-							<col width="130" />
-							<col width="130" />
-							<col width="130" />
-							<col width="130" />
-							<col width="130" />
-						</colgroup>
-						<tbody>
-						<tr>
-							<th>검색</th>
-							<td>
-								<select>
-									<option>선택하세요</option>
-								</select>
-								<input type="text" name="" class="inputText" size="30" />
-							</td>
-						</tr>
-						</tbody>
-					</table>
-
+					<form action="" method="post">
+						<table class="bbsWrite mgb35">
+							<caption></caption>
+							<colgroup>
+								<col width="70" />
+								<col width="130" />
+								<col width="130" />
+								<col width="130" />
+								<col width="130" />
+								<col width="200" />
+								<col width="130" />
+								<col width="130" />
+								<col width="130" />
+								<col width="130" />
+								<col width="130" />
+								<col width="200" />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th>검색</th>
+								<td>
+									<select id="query" name="query">
+										<option value="empty" selected="selected">선택하세요</option>
+										<option value="ID">ID</option>
+										<option  value="NAME">NAME</option>
+										<option  value="EMAIL">EMAIL</option>
+									</select>
+									<input type="text" name="data" id="data" class="inputText" size="30" />
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form action="suerch">
 					<table class="bbsList">
 						<colgroup>
-							<col width="30" />
+							<col width="70" />
 							<col width="130" />
 							<col width="130" />
 							<col width="130" />
@@ -83,12 +119,16 @@
 							<col width="130" />
 							<col width="130" />
 							<col width="130" />
+							<col width="200" />
 							
 							
 						</colgroup>
 						<thead>
 						<tr>
-							<th scope="col" class="fir">NO</th>
+							<th scope="col" class="fir">
+								<input type="checkbox" name="all"/>
+								NO
+							</th>
 							<th scope="col" class="fir">ID</th>
 							<th scope="col" class="fir">PASSWORD</th>
 							<th scope="col" class="fir">GENDER</th>
@@ -99,6 +139,7 @@
 							<th scope="col" class="fir">CP</th>
 							<th scope="col" class="fir">REGDATE</th>
 							<th scope="col" class="fir">NAME</th>
+							<th scope="col" class="fir">STATE</th>
 						</tr>
 						</thead>
 
@@ -108,7 +149,11 @@
 						-->
 						<c:forEach var="i" items="${member}" varStatus="cnt">
 						<tr>
-							<td>${cnt.count}</td>
+							
+							<td>
+								<input type="checkbox" name="sel"/>
+								${cnt.count}
+							</td>
 							<!--  -->
 							<td>${i.id}</td>
 							<td>${i.password}</td>
@@ -120,10 +165,15 @@
 							<td>${i.cp}</td>
 							<td>${i.regdate}</td>
 							<td>${i.name}</td>
+							<td>
+								<span class="button"><a href="#">수정</a></span>
+								<span class="button"><a href="#">삭제</a></span>
+							</td>
 						</tr>
 						</c:forEach>
 						</tbody>
 					</table>
+					
 
 					<div class="paging">
 						<a href="#"><img src="/web/img/button/btn_first.gif" alt="처음페이지" /></a>

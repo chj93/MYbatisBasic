@@ -72,11 +72,11 @@ public class MemberDao {
 		}
 	}
 	
-	public static List<MemberBean>selectMember(){
+	public static List<MemberBean>selectMember(HashMap<String, Object>map){
 		SqlSession sqlsession=null;
 		try {
 			sqlsession=sqlSessionFactory.openSession();
-			return sqlsession.selectList("selectMember");
+			return sqlsession.selectList("selectMember",map);
 			
 		}catch (Exception e) {
 			e.printStackTrace();

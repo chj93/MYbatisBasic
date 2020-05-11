@@ -26,6 +26,8 @@ public class AdminLoginAction implements Action{
 		if(id.equals("Admin")&&password.equals("1234")) {
 			//path="list.jsp"; X
 			path="memberList.do?cmd=memberList";
+			request.getSession().setAttribute("id", id);
+			request.getSession().setMaxInactiveInterval(60);
 		}else {
 			path="jsp/admin.jsp";
 			redirect=true;
