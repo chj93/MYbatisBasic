@@ -7,12 +7,19 @@
 <meta name="viewport" content="width=1200">
 <meta property="og:image" content="https://www.jejupassrent.comstatic/images/seo/jejupassrent_basic5.png">
 <title>제주패스렌트카 - 제주도 렌트카 실시간 가격비교</title>
-<link rel="alternate" media="only screen and (max-width: 640px)" href="https://www.jejupassrent.com/home/main/main.do">
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="static/css/style.css">
 </head>
 <script type="text/javascript" src="static/js/jquery-ui.js"></script>
+<script src="static/js/jquery.js"></script>
+<script src="static/js/style.js"></script>
+<script src="static/js/affix.js"></script>
+<script src="static/js/collapse.js"></script>
+<script src="static/js/modal.js"></script>
+<script src="static/js/tooltip.js"></script>
+<script src="static/js/popover.js"></script>
+<script src="static/js/jquery.matchHeight.js"></script>
 <body class="home">	
 <style>
 .nav-gnb > li {
@@ -34,19 +41,20 @@ background-position: 280px 345px !important;
 </style>
 <a href="#container" class="out-screen">콘텐츠 바로가기</a>
 <div id="top"></div>
+
 		<div class="navbar">
 		<div class="content-wrap">
 			<div class="navbar-brand">
-			<a href="/home/main/main.do">
-				<img src="static/images/logo_p_original.png" alt="제주패스렌트카">
+			<a href="#">
+				<!-- 이미지 수정 -->
+				<img src="static/images/logo_p_original.png" alt="로고이미지">
 			</a>
 		</div>
-
 		<ul class="nav nav-gnb">
-		<li><a href="/home/search/list.do" data-menu="search">최저가 예약</a></li>
-		<li><a href="/home/premiumGuide/view.do" data-menu="premium">프리미엄 예약</a></li>
-		<li><a href="/home/mypage/myResvListForm.do" data-menu="mypage">예약 확인</a></li>
-		<li><a href="/home/event/list.do" data-menu="event">이벤트</a></li>
+		<li><a href="#" data-menu="search">메뉴1</a></li>
+		<li><a href="#" data-menu="premium">메뉴2</a></li>
+		<li><a href="#" data-menu="mypage">메뉴3</a></li>
+		<li><a href="#" data-menu="event">메뉴4</a></li>
 		</ul><!--//nav-gnb-->
 
 		<div class="nav-right">
@@ -54,56 +62,9 @@ background-position: 280px 345px !important;
 			<li><a href="/home/login/loginForm.do">로그인</a></li>
 			<li><a href="/home/join/joinForm.do">회원가입</a></li>
 		</ul>
-		<a href="https://www.jejupassrent.com/home/notice/view.do?page=1&noticeSn=2898526&searchValue=">전화예약 <span>1544-0445</span></a>
 		</div><!--//nav-right-->
-		
-		<div class="close_btn">
-			<a href="javascript:void(0)"><img src="static/images/main_menu_btn_close.png" /></a>
-		</div>
-		<div class="close_btn_show">
-			<a href="javascript:void(0)">전체<br>메뉴</a>
-		</div>
-		<div class="main_menu hidden">
-		<ul class="menu_bg">
-		<li class="menu_title "><a href="/home/search/list.do">최저가 예약</a></li>
-		<li class="menu_title padding_b margin_bottom"><a href="/home/search/list.do?insrncApplcCode=05">프리미엄 예약</a></li>
-		<li class="p_style">
-		<span class="fl"><a href="/home/search/list.do?insrncApplcCode=05">프리미엄 예약</a></span>
-		<span class="fl "><a href="/home/premiumGuide/view.do">프리미엄 예약 서비스</a></span>
-		<!-- 				<span class="fl"><a href="javascript:alert('준비중입니다');">렌터카 픽업서비스</a></span> -->
-		<span class="fl"><a href="javascript:alert('준비중입니다');">와이파이</a></span>
-		<span class="fl"><a href="javascript:alert('준비중입니다');">제주패스 웰컴 박스</a></span>
-		</li>
-		<li class="menu_title padding_bottom0"><a href="/home/mypage/myResvListForm.do">예약확인</a></li>
-		<li class="p_style">
-		<span class="fl"><a href="/home/mypage/myResvListForm.do" data-menu="mypage">예약내역</a></span>
-		<span class="fl"><a href="/home/coupon/myCoupon.do">쿠폰함</a></span>
-		<span class="fl"><a href="/home/mypage/myPageInfo.do">내정보</a></span>
-		</li>
-		<li class="menu_title "><a href="/home/entrps/list.do">이용후기</a></li>
-		<li class="menu_title  padding_top0"><a href="/home/notice/list.do">고객센터</a></li>
-		<li class="p_style">
-		<span class="fl"><a href="/home/notice/list.do">공지사항</a></span>
-		<span class="fl"><a href="/home/faq/list.do">자주찾는질문</a></span>
-		<span class="fl"><a href="/home/report/registerForm.do">최저가 보장제</a></span>
-		
-		</li>
-		<li class="menu_title "><a href="/home/benefit/view.do">이용혜택</a></li>
-		<li class="menu_title  padding_top0"><a href="/home/event/list.do">이벤트</a></li>
-		</ul>
-		</div>
-		<!-- ...리뉴얼 메뉴 추가, 2019-05-13, zhuyeel -->
 		</div><!--//content-wrap-->
 		</div><!--//navbar-->
-
-
-
-
-
-
-
-
-  
 
 <script>
 $(document).ready(function() {
@@ -118,27 +79,7 @@ $(document).ready(function() {
 })
 </script>
 
-<div class="bubble">
-	<p>예약에 어려움이 있으신가요?<br><br>어디서든 쉽고 편리한 전화예약 서비스를 이용해보세요.</p>
-	<div>전화예약 <span>1544-0445</span></div>
-	<button type="button"></button>
-</div>
-<script>
-	$( ".bubble button" ).click( function(){
-		$( this ).parent().hide()
-	})
-</script>
-<!--//bubble-->
 <div id="container">
-	
-
-
-
-
-
-
-
-  
 <script type="text/javascript">
 	jQuery(function() {
 
@@ -426,57 +367,48 @@ $(document).ready(function() {
 	<div class="bannerBg"></div>
 	<div class="mainBanners" style="position:relative;width:1280px;height:470px;margin:0 auto">
 		<div id="carousel-banner" class="slider single-item img-wrap-responsive">
-
-			
+		
 				<div class="slideImg" data-backcolor="#21C4E6" onclick="clickLog(7,'/home/notice/view.do?noticeSn=34052629');">
 					<a href="/home/notice/view.do?noticeSn=34052629">
 						<img src="/util/file/noTokenDownload.do?fileSn=35334951" width="772px" height="470px" alt="">
-						<span class="slideTitle">압도적 1위</span>
+						<span class="slideTitle"></span>
 					</a>
 				</div>
 			
 				<div class="slideImg" data-backcolor="#E5E5E5" onclick="clickLog(2,'/home/event/view.do?page=1&eventSn=26218453');">
 					<a href="/home/event/view.do?page=1&eventSn=26218453">
 						<img src="/util/file/noTokenDownload.do?fileSn=35332897" width="772px" height="470px" alt="">
-						<span class="slideTitle">SK주유할인</span>
+						<span class="slideTitle"></span>
 					</a>
 				</div>
 			
 				<div class="slideImg" data-backcolor="#A5D0F9" onclick="clickLog(3,'/home/notice/view.do?noticeSn=31508336');">
 					<a href="/home/notice/view.do?noticeSn=31508336">
 						<img src="/util/file/noTokenDownload.do?fileSn=35333004" width="772px" height="470px" alt="">
-						<span class="slideTitle">당일예약</span>
+						<span class="slideTitle"></span>
 					</a>
 				</div>
 			
 				<div class="slideImg" data-backcolor="#041845" onclick="clickLog(4,'/home/event/view.do?page=1&eventSn=33498358');">
 					<a href="/home/event/view.do?page=1&eventSn=33498358">
 						<img src="/util/file/noTokenDownload.do?fileSn=35333068" width="772px" height="470px" alt="">
-						<span class="slideTitle">빛의벙커</span>
+						<span class="slideTitle"></span>
 					</a>
 				</div>
 			
 				<div class="slideImg" data-backcolor="#508FCC" onclick="clickLog(5,'/home/event/view.do?page=1&eventSn=32649469');">
 					<a href="/home/event/view.do?page=1&eventSn=32649469">
 						<img src="/util/file/noTokenDownload.do?fileSn=35333086" width="772px" height="470px" alt="">
-						<span class="slideTitle">아쿠아 플라넷</span>
+						<span class="slideTitle"></span>
 					</a>
 				</div>
 			
 				<div class="slideImg" data-backcolor="#D5D5D5" onclick="clickLog(6,'/home/premiumGuide/view.do');">
 					<a href="/home/premiumGuide/view.do">
 						<img src="/util/file/noTokenDownload.do?fileSn=35333105" width="772px" height="470px" alt="">
-						<span class="slideTitle">프리미엄</span>
+						<span class="slideTitle"></span>
 					</a>
 				</div>
-			
-
-			<!-- 에코포인트 배너 시안2 -->
-			
-			
-			
-	
-			
 		</div>
 
 	<div class="sidebar">
@@ -1523,67 +1455,13 @@ $('.price').fadeOut();
 )
 });
 </script>
-<div class="close_btn">
+
 <a href="#"><img src="static/images/main_menu_btn_close.png" /></a>
 </div>
 <div class="close_btn_show">
 <a href="#"><img src="static/images/main_menu_btn.png" /></a>
 </div>
-<div class="main_menu">
-<ul class="menu_bg">
-<li class="menu_title">실시간예약</li>
-<li class="menu_title color menu2 padding_b margin_bottom">프리미엄카예약</li>
-<li class="p_style">
-<span class="fl color_f">프리미엄 예약</span>
-<span class="fl">프리미엄예약 서비스</span>
-<span class="fl">렌터카 픽업서비스<#tooltip-normal-guide/span>
-<span class="fl">와이파이</span>
-<span class="fl">제주패스 웰컴 박스</span>
-</li>
-<li class="menu_title menu3 padding_bottom0">예약확인</li>
-<li class="p_style">
-<span class="fl"><a href="/home/mypage/myResvListForm.do">예약내역</a></span>
-<span class="fl">쿠폰함</span>
-<span class="fl">내정보</span>
-</li>
-<li class="menu_title menu4">이용후기</li>
-<li class="menu_title menu5 padding_top0">고객센터</li>
-<li class="p_style">
-<span class="fl">공지사항</span>
-<span class="fl">자주찾는질문</span>
-</li>
-<li class="menu_title menu6">이용혜택</li>
-</ul>
-</div> -->
-<!-- 20190429, 메인 메뉴 추가, 김연지 end -->
 
-<!-- <div class="ourservice">
-<div class="content-wrap">
-<div class="title"><h3>Our service</h3></div>
-<ul>
-<li>
-<span class="ico-service1"></span>
-<h4>가격비교</h4>
-<p>제주도 렌트카 54개 업체와 협력하여<br>투명하고 공정한 렌트카 가격비교 서비스를<br>제공하고 있습니다.</p>
-</li>
-<li>
-<span class="ico-service2"></span>
-<h4>실시간예약</h4>
-<p>실시간 예약 가능 차량을 조회하여<br>예약과 동시에 결제를 진행합니다.<br>현장에서 보험료를 따로 결제하지 않습니다.</p>
-</li>
-<li>
-<span class="ico-service3"></span>
-<h4>전화예약</h4>
-<p>언제 어디서나 편리한 전화예약으로<br>간편하게 예약하세요.<br><strong>1544-0445</strong></p>
-</li>
-<li>
-<span class="ico-service4"></span>
-<h4>맛집&middot;관광지&middot;면세점 할인</h4>
-<p>연락처 입력이나 결제 없이<br>모바일 카드 / 쿠폰만 보여주시면<br>현장에서 바로 할인해드립니다.</p>
-</li>
-</ul>
-</div>//content-wrap
-</div>//ourservice -->
 
 
 

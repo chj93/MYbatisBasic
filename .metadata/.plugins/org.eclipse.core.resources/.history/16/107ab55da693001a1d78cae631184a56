@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+#mainSection{
+	width:100%;
+}
+	#mainSection .bg{
+		width:100%;
+	}
+	
+	img{
+		width: 876px;
+	    height: 480px;
+	    margin: 0 auto;
+	}

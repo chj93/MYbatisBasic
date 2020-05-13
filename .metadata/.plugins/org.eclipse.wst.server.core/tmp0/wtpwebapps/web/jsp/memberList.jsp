@@ -15,15 +15,17 @@
 <script type="text/javascript" src=" https://code.jquery.com/jquery-3.5.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
+	$("table#ajaxTable").hide();
+	 
 	$("a#searchBtn").click(function(){
 		if($("select#query").val()=='empty'||$("input#data").val().length==0){
 			alert('검색정보를 선택하세요.');
 			$("select#query").prop("selectedIndex",0);
 			$("input#data").val('');
 			return false;
-		}
-		//$("form").submit();
+		//$("form").submit(); 모델 1 방식
 		//memberList.do?cmd=memberList
+		}//if
 		$.ajax({
 			url:'memberList.do',
 			dataType:'json',
@@ -31,16 +33,114 @@ $(function(){
 			contentsType:'application/x-www-form-urlencoded;charset=UTF-8',
 			data:{cmd:'memberList', query:$("select#query").val(),data:$("input#data").val()},
 			success:function(v){
-				console.log(v);
+				$("table#ajaxTable").show(100).hide(7000);
+				$("tbody#tv").empty();
+				$(v).each(function(index,dom){
+					$("tbody#tv").append("<tr><td>"+dom.no+"</td><td>"+dom.id+"</td><td>"+dom.name+"</td><td>"+dom.password+"</td><td>"+dom.gender+"</td><td>"+dom.birth+"</td><td>"+dom.address+"</td><td>"+dom.email+"</td><td>"+dom.tel+"</td><td>"+dom.cp+"</td><td>"+dom.regedate+"</td></tr>");
+				});
 			},error:function(){
 				alert('에러');
 			}
+		});//ajax
+	});//"a#searchBtn".click
+	
+	$("input#all").click(function(){
+		 //alert($(this).is(":checked"));
+		 //alert(this.checked);
+		 //alert($(this).prop("checked"));
+		 //$(this).prop("checked",$(this).is(":checked"));
+		 
+		 $("input[name='nt']").each(function(){
+			$(this).prop("checked",$("input#all").is(":checked"));
+		 });
+	});//input#all".click
+		 
+	
+	$("input[name='nt']").click(function(){
+		 var state=false;
+		 
+		 $("input[name='nt']").each(function(){
+			//alert($("input#all").is(":checked"));
+			//$(this).prop("checked",$("input#all").is(":checked"));
+			//전체 선택, 해제
+			if(!$(this).prop("checked")){
+				state=true;
+			}
+		 });
+		 $("input#all").prop("checked",(!state));
+	});//input[name='nt'].click
+	
+	 //삭제 -ajax
+	 /* <span class="button"><a href="#" id="${i.no}" name="del">삭제</a></span> */
+	 $("a[name='del']").click(function(){
+		if($(this).text()=='DEL'){
+			$.ajax({
+				url:'/web/memberDelete.do',
+				dataType:'text',
+				type:'POST',
+				data:{no:this.id, job:'ajaxDel', cmd:'memberDelete'},
+				success:function(v){
+					location.reload();
+				}
+			});
+		}
+		$(this).html("DEL");	 
+		//$(this).html("삭제가능"+this.id);
+		var delId=this.id;
+/* 		$("input[type=checkbox]").each(function(){
+			$(this).prop("checked",delId==this.id);
+		});
+ */
+ 		//전체삭제 - 비동기
+ 		$("input[name='nt']").each(function(){
+ 			if(delId==this.id){
+ 				$(this).prop("checked",true);
+ 				$("a[name='del']").each(function(){
+ 					if(this.id!=delId){
+ 						$(this).html("삭제");
+ 					}
+ 				});
+ 			}else{
+ 				$(this).prop("checked",false);
+ 			}
+ 			
+		}); 
+	 });
+	 
+	 $("a#ckDel").click(function(){
+		 var st=false;
+		$("input[name='nt']").each(function(){
+			if($(this).is(":checked")){
+				st=true;
+			}
 		});
 		
-	});
-	
-});
+		if(!st){
+			alert('삭제할 데이터를 선택하세요.');
+			return false;
+		}else{
+			$("form[name='delForm']").submit();
+		}
+	 });
+	 
+	 //수정
+	 //<a href="#" id="${i.no}" name="modify">수정</a>
+	 $("input.modify").hide();
+	 $("a[name='modify']").click(function(){
+		 $(this).text('수정가능');
+		 var modId=this.id; 
+		 
+		 $("input.modify").each(function(){
+			 if(modId==this.id){
+				 $(this).show(10);				 
+			 }
+			 
+		 });
+		 
 
+	 });
+
+});//전체
 
 </script>
 </head>
@@ -70,7 +170,7 @@ $(function(){
 						<span class="fr">
 							<span class="button"><a href="#" id="searchBtn">검색</a></span>
 							<span class="button"><a href="#">글쓰기</a></span>
-							<span class="button"><a href="#">삭제</a></span>
+							<span class="button"><a href="#" id="ckDel">삭제</a></span>
 						</span>
 					</div>
 					<form action="" method="post">
@@ -105,74 +205,86 @@ $(function(){
 							</tr>
 							</tbody>
 						</table>
-					</form action="suerch">
-					<table class="bbsList">
-						<colgroup>
-							<col width="70" />
-							<col width="130" />
-							<col width="130" />
-							<col width="130" />
-							<col width="130" />
-							<col width="200" />
-							<col width="130" />
-							<col width="130" />
-							<col width="130" />
-							<col width="130" />
-							<col width="130" />
-							<col width="200" />
-							
-							
-						</colgroup>
-						<thead>
-						<tr>
-							<th scope="col" class="fir">
-								<input type="checkbox" name="all"/>
-								NO
-							</th>
-							<th scope="col" class="fir">ID</th>
-							<th scope="col" class="fir">PASSWORD</th>
-							<th scope="col" class="fir">GENDER</th>
-							<th scope="col" class="fir">BIRTH</th>
-							<th scope="col" class="fir">ADDRESS</th>
-							<th scope="col" class="fir">EMAIL</th>
-							<th scope="col" class="fir">TEL</th>
-							<th scope="col" class="fir">CP</th>
-							<th scope="col" class="fir">REGDATE</th>
-							<th scope="col" class="fir">NAME</th>
-							<th scope="col" class="fir">STATE</th>
-						</tr>
-						</thead>
-
-						<tbody>
-						<!-- 반복문  var="i" begin="1" end="10" step="1" items=목록
-							i 변수를 1부터 10까지 1씩 증가
-						-->
-						<c:forEach var="i" items="${member}" varStatus="cnt">
-						<tr>
-							
-							<td>
-								<input type="checkbox" name="sel"/>
-								${cnt.count}
-							</td>
-							<!--  -->
-							<td>${i.id}</td>
-							<td>${i.password}</td>
-							<td>${i.gender}</td>
-							<td>${i.birth}</td>
-							<td>${i.address}</td>
-							<td>${i.email}</td>
-							<td>${i.tel}</td>
-							<td>${i.cp}</td>
-							<td>${i.regdate}</td>
-							<td>${i.name}</td>
-							<td>
-								<span class="button"><a href="#">수정</a></span>
-								<span class="button"><a href="#">삭제</a></span>
-							</td>
-						</tr>
-						</c:forEach>
-						</tbody>
-					</table>
+					</form>
+					
+					<form action="memberDelete.do?cmd=memberDelete" name="delForm" method="post">
+						<table class="bbsList">
+							<colgroup>
+								<col width="70" />
+								<col width="130" />
+								<col width="130" />
+								<col width="130" />
+								<col width="130" />
+								<col width="200" />
+								<col width="130" />
+								<col width="130" />
+								<col width="130" />
+								<col width="130" />
+								<col width="130" />
+								<col width="200" />
+								
+								
+							</colgroup>
+							<thead>
+							<tr>
+								<th scope="col" class="fir">
+									<input type="checkbox" name="all" id="all"/>
+									NO
+								</th>
+								<th scope="col" class="fir">ID</th>
+								<th scope="col" class="fir">PASSWORD</th>
+								<th scope="col" class="fir">GENDER</th>
+								<th scope="col" class="fir">BIRTH</th>
+								<th scope="col" class="fir">ADDRESS</th>
+								<th scope="col" class="fir">EMAIL</th>
+								<th scope="col" class="fir">TEL</th>
+								<th scope="col" class="fir">CP</th>
+								<th scope="col" class="fir">REGDATE</th>
+								<th scope="col" class="fir">NAME</th>
+								<th scope="col" class="fir">STATE</th>
+							</tr>
+							</thead>
+	
+							<tbody>
+							<!-- 반복문  var="i" begin="1" end="10" step="1" items=목록
+								i 변수를 1부터 10까지 1씩 증가
+							-->
+							<c:forEach var="i" items="${member}" varStatus="cnt">
+							<tr id="con">
+								
+								<td>
+									<input type="checkbox" name="nt" id="${i.no}" value="${i.no}"/>
+									${cnt.count}
+								</td>
+								<!--  -->
+								<td>
+									${i.id}
+									<input type="text" name="modify" class="modify" value="${i.id}" id="${i.no}"/>
+								</td>
+								<td>
+									${i.password}
+									<input type="text" name="modify" class="modify" value="${i.password}" id="${i.no}"/>
+								</td>
+								<td>
+									${i.gender}
+									<input type="text" name="modify" class="modify" value="${i.gender}" id="${i.no}"/>
+								</td>
+								<td>${i.birth}</td>
+								<td>${i.address}</td>
+								<td>${i.email}</td>
+								<td>${i.tel}</td>
+								<td>${i.cp}</td>
+								<td>${i.regdate}</td>
+								<td>${i.name}</td>
+								<td>
+									<span class="button"><a href="#" id="${i.no}" name="modify">수정</a></span>
+									<span class="button"><a href="#" id="${i.no}" name="del">삭제</a></span>
+								</td>
+							</tr>
+							</c:forEach>
+							</tbody>
+						</table>
+					</form>
 					
 
 					<div class="paging">
@@ -194,7 +306,49 @@ $(function(){
 						<a href="#"><img src="/web/img/button/btn_next.gif" alt="다음" /></a>
 						<a href="#"><img src="/web/img/button/btn_last.gif" alt="마지막페이지" /></a>
 
-					</div>
+					</div><!-- //.paging -->
+					
+								<br></br><br></br>
+			<table class="bbsList" id="ajaxTable">
+						<colgroup>
+							<col width="80" />
+							<col width="130" />
+							<col width="130" />
+							<col width="130" />
+							<col width="130" />
+							<col width="200" />
+							<col width="130" />
+							<col width="130" />
+							<col width="130" />
+							<col width="130" />
+							<col width="130" />
+							<col width="230" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col" class="fir"><input type="checkbox"
+									name="all" /> NO</th>
+								<th scope="col" class="fir">ID</th>
+								<th scope="col" class="fir">PASSWORD</th>
+								<th scope="col" class="fir">GENDER</th>
+								<th scope="col" class="fir">BIRTH</th>
+								<th scope="col" class="fir">ADDRESS</th>
+								<th scope="col" class="fir">EMAIL</th>
+								<th scope="col" class="fir">TEL</th>
+								<th scope="col" class="fir">CP</th>
+								<th scope="col" class="fir">REGDATE</th>
+								<th scope="col" class="fir">NAME</th>
+								
+
+
+							</tr>
+						</thead>
+						<tbody id="tv">							
+															
+						</tbody>
+					</table>
+					
+					
 				</div>
 			</div>
 		</div>

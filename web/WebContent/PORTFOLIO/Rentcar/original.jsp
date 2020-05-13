@@ -248,6 +248,8 @@ function fitHeight(){
 		});
 		</script>
 		
+		<a href="#container" class="out-screen">콘텐츠 바로가기</a>
+		<div id="top"></div>		
 
 		<div class="navbar">
 		<div class="content-wrap">
@@ -258,6 +260,7 @@ function fitHeight(){
 					
 						<img src="static/images/logo_p_original.png" alt="제주패스렌트카">
 					
+				
 				
 			</a>
 		</div>

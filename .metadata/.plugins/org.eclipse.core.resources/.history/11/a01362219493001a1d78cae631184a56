@@ -1,0 +1,210 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ì¤ìµ-ëìì ì½ ë² ì´ì¤</title>
+<link rel="stylesheet" href="CSS/master.css" />
+<script src="js/jquery-3.3.1.min.js"></script>
+<style>
+</style>
+</head>
+<body>
+
+<input id="toggle_menu" type="checkbox" />
+
+<div id="wrap">
+
+	<!--ë°ë¡ê°ê¸°ë©ë´-->
+	<div class="skip">
+		<a href="#contents_wrap">ë³¸ë¬¸ ë°ë¡ê°ê¸°</a>
+		<a href="#main_nav">ë©ì¸ë©ë´ ë°ë¡ê°ê¸°</a>
+ 		<a href="#main_footer">í¸í° ë°ë¡ê°ê¸°</a>
+    </div>
+    
+	<!--pcì©, ì¤í¬ë¡¤ ë´ë ¸ì ë ëíëë ë©ì¸ë©ë´-->
+    <script>
+    	$(function(){
+			setInterval(function(){
+				if($(window	).scrollTop()>=110){
+					$("#main_nav").animate({top:0},500);
+				}else{
+					$("#main_nav").animate({top:-80},500);
+				}
+			},1000);
+		});
+    </script>
+	<nav id="main_nav">
+    	<h2 class="blind">ë©ì¸ë©ë´</h2>
+    	<ul>
+        	<li><a href="#">ëìì ì½</a></li>
+        	<li><a href="#"><span style="border-bottom: 2px solid #FC3">ì íìê°</span></a></li>
+        	<li><a href="#">ì íê°ë°</a></li>
+        	<li><a href="#">ì¬íê³µí</a></li>
+        	<li><a href="#">ê³ ê°ì§ì</a></li>
+        	<li><a href="#">íë³´</a></li>
+        	<li><a href="#">ì¬ì´ë²ê°ì¬ì¤</a></li>
+        </ul>
+    </nav>
+    
+	<!--í¤ë : í ê¸ë©ë´, ë¡ê³ , í ê¸ê²ì-->
+	<header id="main_header">
+    	<label class="toggle_menu" for="toggle_menu"></label>
+        <h1 id="logo"><a href="index.html">ëìì ì½</a></h1>
+        <nav id="top_nav">
+        	<ul>
+            	<li>
+                	<label class="search" for="search"></label>
+                </li>
+                <li class="lang_wrap">
+                	<a href="#">KO</a>
+                    <span>&#124;</span>
+                    <a href="#">EN</a>
+               	</li>
+        	</ul>
+        </nav>
+    </header>
+    
+	<!--ê²ìí ê¸ í´ë¦­ì ê²ìì°½-->
+    <input id="search" type="checkbox"/>
+    <div class="search_wrap">
+    	<form>
+        	<label class="btn_close" for="search"></label>
+        	<fieldset>
+            	<input type="text" class="text" placeholder="ê²ìì´ë¥¼ ìë ¥íì¸ì."/>
+                <input type="image" class="btn_search" src="images/btn_search.png" alt="ê²ì"/>
+            </fieldset>
+        </form>
+    </div>
+    
+	<!--ë©ë´í ê¸ í´ë¦­ì í ê¸ë©ë´-->
+    <div id="toggle_nav_wrap">
+    	<h2 class="blind">ë©ì¸ë©ë´</h2>
+        <label class="menu_close" for="toggle_menu"></label>
+        <ul id="toggle_nav">
+        	<li><a href="#">ëìì ì½</a></li>
+        	<li><a href="sub.html"><span style="border-bottom: 2px solid #FC3">ì íìê°</span></a></li>
+        	<li><a href="#">ì íê°ë°</a></li>
+        	<li><a href="#">ì¬íê³µí</a></li>
+        	<li><a href="#">ê³ ê°ì§ì</a></li>
+        	<li><a href="#">íë³´</a></li>
+        	<li><a href="#">ì¬ì´ë²ê°ì¬ì¤</a></li>
+        </ul>
+        <div id="lang">
+            <a href="#">KO</a>
+            <span>&#124;</span>
+            <a href="#">EN</a>
+        </div>
+        <label class="menu_bg_close" for="toggle_menu"></label>
+   </div><!--/toggle_nav-->
+   
+  <div id="contents_wrap">
+  	ìë¸íì´ì§ ë´ì©
+  </div>
+  
+  
+	<!--í¸í° ìì­-->   
+   <footer id="main_footer">
+		<div id="family_site">
+        	<h3 class="f_title">Family Site </h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>ì§ì£¼íì¬</dt>
+                        <dd><a href="#">ëìììì¤íë©ì¤</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ììë£</dt>
+                        <dd><a href="#">ëìì¤ì¸ ì¹´</a></dd>
+                        <dd><a href="#">ëì²ì</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ì ì½</dt>
+                        <dd><a href="#">ëìST</a></dd>
+                        <dd><a href="#">ëìì ì½</a></dd>
+                        <dd><a href="#">ìì¤í°í</a></dd>
+                        <dd><a href="#">DMB</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ë¬¼ë¥</dt>
+                        <dd><a href="#">ì©ë§ë¡ì§ì¤</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ë³ì ë¦¬</dt>
+                        <dd><a href="#">ìì</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ê¸°ê³ë¶í</dt>
+                        <dd><a href="#">íêµ­ì ëê³µì</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ì ë³´íµì </dt>
+                        <dd><a href="#">DAì¸í¬ë©ì´ì</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ê±´ì¤</dt>
+                        <dd><a href="#">ì² ê·¼ì¢í©ê±´ì¤</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>í´ì¸</dt>
+                        <dd><a href="#">Dong-A America Co.</a></dd>
+                        <dd><a href="#">ìì£¼ëììë£ì íê³µì¬</a></dd>
+                        <dd><a href="#">Dong-A Participacoes Ltda</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div> 
+        
+        <div id="brand_site">
+        	<h3 class="f_title">Brand Site</h3>
+            <ul>
+                <li><a href="#">ê°ê·¸ë¦°</a></li>
+                <li><a href="#">ë°ì¹´ì¤</a></li>
+                <li><a href="#">ëª¨ëì¼ì´</a></li>
+                <li><a href="#">ì¨íë</a></li>
+                <li><a href="#">íí¬</a></li>
+                <li><a href="#">ë¹ê²í¬ë¦¼í¤</a></li>
+                <li><a href="#">êµ­í ëì¥ì </a></li>
+                <li><a href="#">íê²½ìëªêµì¤</a></li>
+                <li><a href="#">AD CAFE</a></li>
+            </ul>            
+        </div>  
+        
+        <div id="policy">
+        	<ul>
+            	<li><a href="#">ê°ì¸ì ë³´ì·¨ê¸ë°©ì¹¨</a></li>
+                <li class="last"><a href="#">ì¸ì¬ê°ë°ì</a></li>
+            </ul>
+        </div>
+        
+        <div id="f_address">
+            <h1 id="f_logo"><img src="images/logo_footer.png" alt="ëìì ì½ ë¡ê³ "/></h1>
+            <address>
+                <p>ìì¸ì ëëë¬¸êµ¬ ì²í¸ëë¡ 64 TEL.02 - 920 - 8112</p>
+                <p class="copyright">Copytight DONG-A PHARM. All rights reserved </p>
+            </address>
+            <div id="wa"><a href="#"><img src="images/award.jpg" alt="WEB AWARD"/></a></div>
+   </footer>
+    
+</div><!--/wrap-->
+
+</body>
+</html>

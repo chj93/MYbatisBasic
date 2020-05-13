@@ -1,22 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="org.eclipse.jst.jsp.ui.internal.preferences.ui.JSPTemplatePreferencePage$JSPEditTemplateDialog_dialogBounds">
+		<item value="717" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="419" key="DIALOG_HEIGHT"/>
+		<item value="346" key="DIALOG_X_ORIGIN"/>
+		<item value="236" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="KO" key="selection"/>
+		<item value="NO" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="ko"/>
-			<item value=".html"/>
-			<item value="html"/>
-			<item value="FORM"/>
-			<item value="form"/>
-			<item value="head"/>
-			<item value="저장"/>
+			<item value="no"/>
+			<item value="440px"/>
+			<item value=".container"/>
+			<item value="date"/>
+			<item value="dateInfo"/>
+			<item value=".col-lg-1,"/>
+			<item value="1px"/>
+			<item value="dateSelect"/>
+			<item value="form-control"/>
+			<item value="btn"/>
+			<item value="search-car-input"/>
+			<item value="1170px"/>
+			<item value="(min-width: 1200px)"/>
+			<item value="@media (min-width: 1200px)"/>
+			<item value="contents_wrap"/>
 		</list>
 		<list key="replacehistory">
+			<item value="a href=&quot;#&quot;"/>
+			<item value="&quot;},"/>
+			<item value="&quot;{i"/>
+			<item value=","/>
+			<item value=" "/>
 			<item value=".jsp"/>
 		</list>
 	</section>
@@ -24,7 +44,7 @@
 		<item value="340" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="454" key="DIALOG_HEIGHT"/>
-		<item value="376" key="DIALOG_X_ORIGIN"/>
-		<item value="112" key="DIALOG_Y_ORIGIN"/>
+		<item value="298" key="DIALOG_X_ORIGIN"/>
+		<item value="281" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

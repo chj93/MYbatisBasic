@@ -1,0 +1,164 @@
+/* footerStyle.css */
+
+#main_footer{
+	width: 100%;
+	background-color: #f6f6f6;
+}
+
+@media screen and (min-width: 1367px){
+
+#main_footer{
+	width: 950px;	height: 1100px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+	#main_footer > div{
+		padding-top: 53px;	
+	}
+
+	#main_footer h3.f_title{
+		border-bottom: 1px solid #e7e7e7;
+		height: 38px;
+		line-height: 38px;	 	
+	}
+	
+	#main_footer h3.f_title::after{
+		width: 12px; height: 11px;
+		display: inline-block;
+		content: "";
+		background: url(../images/bg_foot_title.png);
+		margin-left: 30px;
+	}
+
+#family_site{
+	width: 100%;
+}
+	#family_site > ul{
+		width: 100%;	overflow: hidden;
+		margin-top: 41px;
+	}
+
+		#family_site > ul > li{
+			width: 300px;
+			margin: 0 20px 40px 0;
+			float: left;
+		}
+		
+		#family_site > ul > li:nth-of-type(3n){
+			margin-right: 0;
+		}
+
+		#family_site > ul > li:nth-of-type(7),
+		#family_site > ul > li:nth-of-type(8),
+		#family_site > ul > li:nth-of-type(9){
+			margin-bottom: 0;
+		}		
+		
+				#family_site > ul > li > dl{
+					
+				}
+				
+					#family_site > ul > li > dl > dt,
+					#family_site > ul > li > dl > dd{
+						height: 31px;
+						line-height:31px;	
+					}
+					
+					#family_site > ul > li > dl > dt{
+						color: #999999;
+						border-bottom: 1px solid #e7e7e7;	
+						font-weight: bold;
+					}
+					
+					#family_site > ul > li > dl > dd{
+						margin-left: 21px;
+					}
+					
+						#family_site > ul > li > dl > dd > a{
+							height: 31px;
+							line-height:31px;	
+					}
+
+#brand_site{
+	width: 100%;	
+}
+	#brand_site > ul{
+		width: 100%;	
+		overflow: hidden;
+	}
+		
+		#brand_site > ul > li{
+			width: 300px;	
+			float: left;
+			font-weight: bold;
+			margin-top: 20px;
+		}
+
+				#brand_site > ul > li > a{
+					line-height: 38px;
+					height: 38px;	
+				}
+				
+				#family_site > ul > li > dl > dd > a:hover,
+				#brand_site > ul > li > a:hover{
+					color: #00a0c9;	
+				}
+				
+}
+
+#policy{
+	width: 100%;
+	padding-top: 46px;
+	margin-bottom: 33px;
+	line-height: 31px;
+}
+	
+	#policy > ul{
+		overflow: hidden;
+		width: 100%; height: 31px;
+		
+	}
+		#policy > ul > li{
+			float: left;
+			line-height: 31px;
+		}
+		
+		#policy > ul > li.last::before{
+			display: inline-block;
+			content:"";
+			width: 2px; height: 2px;
+			border-radius: 1px;
+			background: #000;
+			margin: 0 20px 4px;
+			
+		}
+	
+			#policy > ul > li > a{
+				display: inline;
+			}
+			
+#f_address{
+	width: 100%;
+	border-top: 1px solid #e7e7e7;
+	overflow: hidden;
+	padding-bottom: 46px;
+}			
+	#f_address > #f_logo{
+		width: 84px;	height: 16px;
+		float: left;
+		margin-top: 10px;
+	}
+	#f_address > address{
+		float:left;
+		margin-left: 27px;
+	}
+	@media screen and (max-width:1366px){
+	#f_address > address{
+		width: 50%;	
+	}	
+	}
+	
+	#f_address > #wa{
+		float: right;
+	}	

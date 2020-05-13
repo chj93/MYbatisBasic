@@ -1,0 +1,301 @@
+/* headerStyle.css */
+
+@media screen and (min-width: 1367px){
+#main_nav{
+	width: 100%; height: 70px;
+	background: rgba(255,255,255,0.8);
+	box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+	
+	position: fixed;
+	top: -80px;
+	z-index:90;
+}
+	#main_nav > ul{
+		display: table;	
+		margin: 0 auto;
+	}
+		#main_nav > ul > li{
+			display: table-cell;
+		}
+			#main_nav > ul > li > a{
+				line-height: 70px;
+				padding: 0 19px; /*�뀒�씠釉붿� margin �쟻�슜 X*/
+				color: #000;	
+			}
+			
+			#main_nav > ul > li > a:hover{
+				color: #00a0c9;	
+			}
+}
+#main_header{
+	width: 100%; height: 110px;
+	position: relative;
+	z-index: 100;
+}
+
+@media screen and (max-width:1366px){
+#main_header{
+background: #fff;
+position: fixed;
+
+}
+}
+
+
+@media screen and (max-width: 767px){
+#main_header{
+	height: 70px;
+}
+}
+
+	label.toggle_menu{
+		background: url(../images/btn_menu.png);
+		width: 26px; height: 22px;
+		position: fixed;
+		left: 37px; top: 28px;
+		z-index: 100;
+	}
+	
+	#logo{
+		width: 286px; height: 56px;
+		position: absolute;
+		left: 50%; top: 26px;
+		margin-left: -143px;
+		z-index: 80;
+	}
+	
+	@media screen and (max-width:1366px){
+	#logo{
+			width: 256px; height: 46px;
+			margin-left: -128px;
+	}	
+	}
+	@media screen and (max-width: 767px){
+	#logo{
+			top: 17px;
+			width: 150px; height: 35px;
+			margin-left: -75px;
+	}		
+	}
+		
+		#logo > a{
+			background: url(../images/logo_top.png);
+			background-size: 100% 100%;
+			width: 100%; height: 100%;
+			text-indent: -6000px;
+			overflow: hidden;
+		}
+	
+	#top_nav{
+		position: fixed;
+		right: 37px; top: 25px;
+		z-index: 100;
+	}
+	
+		#top_nav > ul{
+			overflow: hidden;
+		}
+		
+			#top_nav > ul > li{
+				float: left;
+			}
+		
+			#top_nav > ul > li.lang_wrap{
+				line-height: 28px;
+				margin-left: 15px;
+			}
+				
+			label.search{
+				background: url(../images/btn_search.png);
+				background-size: 28px 28px;
+				width: 28px; height: 28px;
+				display: block;
+			}
+			
+			li.lang_wrap{}
+			
+				li.lang_wrap > a{
+					display: inline;
+				}
+				
+				li.lang_wrap > span{}	
+				
+/****** 寃��깋 �넗湲� *******/			
+input#search + .search_wrap{
+	width: 100%; height: 70px;
+	background: #fff;
+	position: fixed;
+	top: 0;
+	z-index: 110;
+	display: none;
+}
+
+input#search:checked + .search_wrap{
+	display: block;
+}
+
+	.search_wrap > form{}
+	
+		/** X踰꾪듉 **/	
+		.search_wrap label.btn_close{
+			position: absolute;
+			right: 125px; top: 25px;
+			width: 28px; height: 28px;
+			background: url(../images/btn_close.png);
+		}
+		
+		@media screen and (max-width:1366px){
+		.search_wrap label.btn_close{
+			right: 16px;
+		}		
+		}
+		
+		/**寃��깋�뀓�뒪�듃�븘�뱶�� 踰꾪듉**/	
+		.search_wrap fieldset{
+			width: 646px; height: 47px;
+			border-bottom: 1px solid #000;
+			
+			/* margin: 13px auto 0; */
+			position: absolute;
+			left: 50%; top: 13px;
+			margin-left: -323px;
+		}
+		
+		@media screen and (max-width: 767px){
+		.search_wrap fieldset{
+			width: 70%;
+			left: 5%;
+			margin-left: 0;
+		}
+		}
+			.search_wrap fieldset > input{}
+			
+			input.text{
+				padding-right: 50px;
+				padding-left: 10px;
+				width: 100%; height: 47px;
+				box-sizing:border-box;	
+			}
+			
+			input.btn_search{
+				margin: 10px 11px 9px;
+				position: absolute;
+				right: 0; top: 0;
+			}
+				
+/****** 硫붾돱 �넗湲� *******/	
+input#toggle_menu + #wrap{
+	position: relative;	
+}
+
+input#toggle_menu:checked + #wrap{
+	position: fixed;
+}
+
+		
+input#toggle_menu + #wrap #toggle_nav_wrap{
+	position: fixed;
+	left: -100%; top: 0; bottom: 0;
+	width: 100%;
+	z-index: 120;
+}
+
+input#toggle_menu:checked + #wrap #toggle_nav_wrap{
+	left: 0;
+	transition-delay: 0.3s;
+	transition-duration: 0.3s;
+}
+
+	/***** X踰꾪듉 *****/	
+	label.menu_close{
+		width: 28px; height: 28px;
+		background: url(../images/btn_close.png);
+		position: absolute;
+		left: 37px; top: 25px;
+		z-index: 116;
+	}
+	
+	/***** 硫붿씤硫붾돱 *****/
+	ul#toggle_nav{
+		width: 380px;
+		position: absolute;
+		left: 0; top: 0; bottom: 0;
+		background: #fff;
+		z-index: 115;
+		padding-top: 98px;
+	}
+
+		ul#toggle_nav > li{
+			height: 70px;
+		}
+		
+			ul#toggle_nav > li > a{
+				line-height: 70px;
+				padding: 0 37px;
+				font-weight:bold;
+			}
+			
+	@media screen and (max-width: 767px){
+	ul#toggle_nav{
+		width: 80%;	
+	}
+		ul#toggle_nav > li{
+			height: 30px;
+		}	
+
+			ul#toggle_nav > li > a{
+				line-height: 30px;
+			}
+	}			
+			
+	/**** tablet, mobile �뿉�꽌留� �굹���굹�뒗 �뼵�뼱 ****/		
+	@media screen and (max-width:1366px){
+	#lang{
+		position: absolute;
+		top: 25px;
+		z-index: 116;
+		width: 90px; 
+		text-align: center;	
+	}
+	
+		#lang > a{
+			display: inline;	
+		}
+		
+		#lang > span{}
+	}
+	@media screen and (min-width: 768px) and (max-width:1366px){
+	#lang{
+		left: 253px; 	
+	}
+	}
+	
+	@media screen and (max-width: 767px){
+	#lang{
+		right: 20%; 	
+	}
+	}
+		/****硫붾돱瑜� �젣�쇅�븳 寃��젙�깋 �굹癒몄� �쁺�뿭 ****/		
+		input#toggle_menu + #wrap label.menu_bg_close{
+			position: fixed;
+			left: -100%; top: 0; bottom: 0;	
+			width: 100%;
+			
+			background: rgba(0,0,0,0.5);
+			opacity: 0;
+			transition-duration: 0.3s;
+			
+		}
+		
+		input#toggle_menu:checked + #wrap label.menu_bg_close{
+			left: 0;
+			opacity: 1;
+		}
+		@media screen and (max-width: 767px){
+		label.menu_bg_close{
+			left: 80%;	
+		}
+		}
+	
+	
+	

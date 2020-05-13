@@ -172,10 +172,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<if test="query!=null and data!=null">
 		<where>
 		${query} LIKE '%'||#{data}||'%'
+		
+		<!-- $== table의 칼럼에 접근할때 #==값에 접근할때  -->
 		</where>
 	</if>
 	ORDER BY NO DESC
 	</select>
+	
+	<delete id="deleteMember">
+		delete from JOINMEMBER where no=#{VALUE}
+	</delete>
 	
 </mapper>
 

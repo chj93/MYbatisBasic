@@ -1,0 +1,15 @@
+/* master.css */
+
+@import url('common.css');
+@import url('headerStyle.css');
+@import url('footerStyle.css');
+
+@media screen and (min-width: 1367px){
+body{
+	background: url(../images/bg_foot.png) repeat-x 0 100%;	
+}
+}
+
+#wrap{
+	width: 100%;	
+}

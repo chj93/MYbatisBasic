@@ -1,0 +1,75 @@
+/* common.css */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+@font-face{
+	font-family: 'Nanum Gothic';
+	src: url('../fonts/NanumGothic-Regular.ttf') format('truetype');
+}
+
+*{margin: 0; padding: 0;}
+
+html, body, table, tr, th, td, input, select, option, textarea, button{
+	font: 18px / 170% verdana, 'Nanum Gothic', sans-serif;
+	color: #000;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-size: 1.0em;
+	font-weight: normal;	
+}
+
+img, iframe, fieldset, input, select, opction, textarea, botton{
+	border: 0 none;
+	border-radius: 0;	
+}
+
+table, tr, th, td{
+	border-collapse: collapse; /*�뀒�씠釉� 湲곕낯�뿬諛� �뾾�븷湲�*/	
+}
+
+ul, ol, li{
+	list-style: none;	
+}
+
+b, strong{
+	font-weight: normal;	
+}
+
+i, em, address{
+	font-style: normal;	
+}
+
+a{
+	text-decoration: none;
+	color: #000;	
+}
+
+input#toggle_menu, input#search, legend, hr{
+	display: none;
+}
+
+label, a, img{
+	display: block;	
+}
+
+.skip, .blind{
+	display: block;
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	top: -9000px;	
+}
+
+@media screen and (min-width: 1367px){
+#lang{
+	display: none;	
+}
+}
+
+@media screen and (max-width:1366px){
+#main_nav, li.lang_wrap, #family_site, #brand_site{
+	display: none;
+}
+}
+
+

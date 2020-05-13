@@ -86,6 +86,28 @@ public class MemberDao {
 		
 		return null;
 	}
+	
+	
+	public static void deleteMember(int no) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			sqlSession.delete("deleteMember", no);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		} finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+	}
+	
+	
 }
 
 

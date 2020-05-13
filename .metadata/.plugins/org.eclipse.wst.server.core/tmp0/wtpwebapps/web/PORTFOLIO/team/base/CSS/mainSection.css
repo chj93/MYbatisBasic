@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+#mainSection{
+	width:100%;
+	position: relative;
+    background: #ccc;
+    top: 0;
+    left: 0;
+}
+	#mainSection .bg{
+		width:100%;
+		position: absolute;
+	    top: 0;
+	    left: 0;
+	}
+	
+	img.pc{
+		width: 876px;
+	    height: 480px;
+	    margin: 0 auto;
+	}
