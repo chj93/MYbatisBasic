@@ -13,6 +13,17 @@ public class MemberBean {
 	private String regdate;
 	private String name;
 	
+	public MemberBean(int no, String id, String password, String gender, String birth) {
+		super();
+		this.no = no;
+		this.id = id;
+		this.password = password;
+		this.gender = gender;
+		this.birth = birth;
+	}
+	public MemberBean() {
+		super();
+	}
 	public int getNo() {
 		return no;
 	}

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sist.com.bean.apple">
+
+	<resultMap type="emp" id="selectEmpID">
+		<result property="empno" column="en" />
+		<result property="ename" column="irum" />
+		<result property="sal" column="sal" />
+		<result property="c" column="comm" />
+		<result property="hiredate" column="hiredate" />
+		<result property="job" column="job" />
+
+	</resultMap>
+	<sql id="selectBbsSQL">
+		SELECT NO,WRITER,TITLE,
+		HIT,CASE
+		WHEN HIT BETWEEN 0 AND 10 THEN 1
+		WHEN HIT BETWEEN 11 AND 20 THEN 2
+		WHEN HIT BETWEEN 21 AND 50 THEN 3
+		WHEN HIT BETWEEN 51 AND 100 THEN 4
+		ELSE
+		5
+		TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,FILENAME
+		FROM BBS_SI		
+	</sql>
+	<select id="selectBbs" resultType="bbs" parameterType="java.util.HashMap">
+	SELECT RM,NO,WRITER,TITLE,HIT,GRADE,REGDATE,FILENAME
+	FROM(
+		SELECT ROWNUM RM,NO,WRITER,TITLE,HIT,GRADE,REGDATE,FILENAME
+		FROM(
+			SELECT NO,WRITER,TITLE,HIT,CASE
+			WHEN HIT BETWEEN 0 AND 10 THEN 1
+			WHEN HIT BETWEEN 11 AND 20 THEN 2
+			WHEN HIT BETWEEN 21 AND 50 THEN 3
+			WHEN HIT BETWEEN 51 AND 100 THEN 4
+			ELSE
+			5
+			END GRADE,
+			TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,FILENAME
+			FROM BBS_SI	
+			<if test="query!=null and data!=null">
+		  		<where>${query} LIKE '%'||#{data}||'%' </where>
+			</if>
+			ORDER BY NO DESC))
+	WHERE RM BETWEEN #{start} AND #{end}
+
+	<!-- <include refid="selectBbsSQL"></include> -->
+		<!-- ORDER BY NO DESC -->
+	</select>
+
+
+	<select id="selectEmp" resultType="emp" resultMap="selectEmpID">
+		SELECT EMPNO en,ENAME irum,SAL,NVL(COMM,0)Comm,MGR,
+		TO_CHAR(HIREDATE,'YYY/MM/DD')HIREDATE,JOB
+		FROM EMP
+	</select>
+
+	<select id="selectStudent" resultType="java.util.HashMap">
+		SELECT STUDNO,NAME
+		FROM STUDENT
+	</select>
+	
+	<insert id="insertBBS" parameterType="bbs">
+		INSERT INTO BBS_SI(NO,WRITER,TITLE,PASSWORD,CONTENTS,HIT,FILENAME,REGDATE,ID,REF,STEP,LEV,PNUM,REPLY)
+		VALUES(#{no},#{writer},#{title},#{password},#{contents},0,#{filename},SYSDATE,#{id},#{ref},#{step},#{lev},#{pnum},0)
+	</insert>
+	<update id="updateHit" parameterType="int">
+	    UPDATE BBS_SI SET
+	    HIT=HIT+1
+	    WHERE NO=#{VALUE}
+	</update>
+	<select id="bbsInfo" resultType="bbs"
+	 parameterType="java.lang.Integer">
+	 SELECT NO,WRITER,TITLE,CONTENTS,HIT,FILENAME,PASSWORD,
+	 TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,REF,STEP,LEV,PNUM,REPLY
+	 FROM BBS_SI
+	 WHERE NO=#{VALUE}	
+	 </select>
+	 
+	<select id="getTotalRow" resultType="int" parameterType="java.util.HashMap">
+	SELECT COUNT(*)
+	FROM BBS_SI
+	<choose>
+		<when test="query!=null and data!=null">
+		WHERE ${query} LIKE '%'||#{data}||'%'
+		</when>
+		<otherwise>
+		</otherwise>
+	</choose>
+	
+	</select>
+	 
+	<select id="inCheckProcess" parameterType="java.lang.String" resultType="String">
+		SELECT PASSWORD
+		FROM SIMEMBER	
+		WHERE ID=#{VALUE}
+	</select>
+	 
+	<select id="getPassword" parameterType="java.lang.Integer" resultType="java.lang.String">
+		select password from bbs_si where no=#{VALUE}
+	</select>
+	
+	<!-- 추가 -->
+	<delete id="deleteBBS" parameterType="java.lang.Integer">
+		delete from bbs_si where no=#{VALUE}
+	</delete>
+	
+	<update id="updateBBS">
+		UPDATE BBS_SI SET
+		writer=#{writer},title=#{title},password=#{password},contents=#{contents}
+		<if test="filename!='noimage.jpg'">
+		,FILENAME=#{filename}
+		</if>
+		where no=#{no}
+	</update>
+	 
+	<select id="getSequence" resultType="java.lang.Integer">
+		SELECT BBS_SI_SEQ.NEXTVAL FROM DUAL
+	</select> 
+	
+	<update id="updateReply" parameterType="java.util.HashMap">
+		UPDATE BBS_SI SET
+		<choose>
+			<when test="job=='reply'">
+			REPLY=REPLY+1
+			</when>
+			<otherwise>
+			REPLY=REPLY-1
+			</otherwise>
+		</choose>
+		WHERE NO=#{num}
+	</update>
+	
+	<update id="updateStep" parameterType="java.util.HashMap">
+		UPDATE BBS_SI SET
+		STEP=STEP+1
+		WHERE REF=#{ref} AND STEP>#{step}
+	</update>
+	<!-- 넘어온 스텝보다 기존 DB스텝이 클 경우 증가시켜줌 -->
+
+	<select id="idcheckProcess" parameterType="java.lang.String" resultType="java.lang.String">
+	  SELECT PASSWORD FROM SIMEMBER
+	  WHERE ID=#{VALUE}	
+	</select>	
+	
+	<select id="memberIdCheck" parameterType="java.lang.String"
+	 resultType="java.lang.String">
+	 SELECT ID FROM JOINMEMBER
+	 WHERE ID=#{VALUE}
+	 </select>
+	 
+	 <select id="selectZip" parameterType="java.lang.String" resultType="sist.com.model.zipBean">
+	 SELECT ZIPCODE,SIDO,GUGUN,DONG,NVL(BUNJI,' ')BUNJI
+	 FROM zipcode
+	 WHERE DONG LIKE '%'||#{VALUE}||'%'
+	 </select>
+
+	<insert id="insertJoin"  parameterType="member">
+<!-- 	
+		INSERT INTO JOINMEMBER(NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME)
+		VALUES(#{no},#{id},#{password},#{gender},#{birth},#{address},#{email},#{tel},#{cp},SYSDATE,#{name})
+-->
+	INSERT INTO JOINMEMBER(NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME)
+	VALUES(JOINMEMBER_SEQ.NEXTVAL,#{id},#{password},#{gender},#{birth},#{address},#{email},#{tel},#{cp},SYSDATE,#{name})
+	</insert>
+	
+	<select id="selectMember" resultType="member" parameterType="java.util.HashMap">
+	SELECT NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,TO_CHAR(REGDATE,'YYY/MM/DD')REGDATE,NAME
+	FROM JOINMEMBER
+	<if test="query!=null and data!=null">
+		<where>
+		${query} LIKE '%'||#{data}||'%'
+		
+		<!-- $== table의 칼럼에 접근할때 #==값에 접근할때  -->
+		</where>
+	</if>
+	ORDER BY NO DESC
+	</select>
+	
+	<delete id="deleteMember" parameterType="int">
+		delete from JOINMEMBER where no=#{VALUE}
+	</delete>
+	
+	<update id="">
+		UPDATE JOINMEMBER 
+		id=#{id},password=#{password},gender=#{gender},birth=#{birth} 
+		WHERE NO=#{no}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

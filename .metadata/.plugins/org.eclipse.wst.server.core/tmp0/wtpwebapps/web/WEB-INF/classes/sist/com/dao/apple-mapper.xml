@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="selectEmp" resultType="emp" resultMap="selectEmpID">
 		SELECT EMPNO en,ENAME irum,SAL,NVL(COMM,0)Comm,MGR,
-		TO_CHAR(HIREDATE,'YYY/MM/DD')HIREDATE,JOB
+		TO_CHAR(HIREDATE,'YYYY/MM/DD')HIREDATE,JOB
 		FROM EMP
 	</select>
 
@@ -167,7 +167,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="selectMember" resultType="member" parameterType="java.util.HashMap">
-	SELECT NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,TO_CHAR(REGDATE,'YYY/MM/DD')REGDATE,NAME
+	SELECT NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,NAME
 	FROM JOINMEMBER
 	<if test="query!=null and data!=null">
 		<where>
@@ -179,9 +179,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	ORDER BY NO DESC
 	</select>
 	
-	<delete id="deleteMember">
+	<delete id="deleteMember" parameterType="int">
 		delete from JOINMEMBER where no=#{VALUE}
 	</delete>
+	
+	<update id="updateMember" parameterType="member">
+		UPDATE JOINMEMBER SET
+		id=#{id},password=#{password},gender=#{gender},birth=#{birth} 
+		WHERE NO=#{no} 
+	</update>
 	
 </mapper>
 

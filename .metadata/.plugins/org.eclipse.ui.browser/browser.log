@@ -7,3 +7,7 @@
 
 5월 13, 2020 09:41:22.57 NEW SESSION
 5월 13, 2020 09:41:22.57 [217208:185936:0513/094122.508:ERROR:browser_switcher_service.cc(238)] XXX Init()
+5월 13, 2020 12:49:10.99 [217208:272668:0513/124910.999:ERROR:socket_stream.cc(218)] Closing stream with result -2
+5월 13, 2020 14:04:19.77 [217208:30016:0513/140419.775:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+5월 13, 2020 14:04:27.39 [217208:272668:0513/140427.390:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
+5월 13, 2020 15:12:24.48 [217208:272668:0513/151224.488:ERROR:mcs_client.cc(755)] Received close command, resetting connection.

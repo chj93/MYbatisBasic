@@ -22,7 +22,13 @@ public class ActionFactory {
 			action=new MemberAction("JQuery/ajaxData/data10.jsp", false);
 		}else if(cmd.equals("memberDelete")) {
 			action=new DeleteAction("memberList.do?cmd=memberList", true);
+		
+		}else if(cmd.equals("memberModify")) {
+			action=new MemberModify("memberList.do?cmd=memberList", true);
 		}
+		/*else if(cmd.equals("memberModify")) {
+			action=new ModifyAction("memberList.do?cmd=memberList", true);
+		}*/
 		return action;
 	}
 }
