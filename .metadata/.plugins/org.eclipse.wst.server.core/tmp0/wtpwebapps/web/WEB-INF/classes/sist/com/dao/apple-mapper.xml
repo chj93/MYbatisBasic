@@ -167,16 +167,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="selectMember" resultType="member" parameterType="java.util.HashMap">
-	SELECT NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,NAME
+<!-- 	SELECT NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,NAME
 	FROM JOINMEMBER
 	<if test="query!=null and data!=null">
 		<where>
 		${query} LIKE '%'||#{data}||'%'
 		
-		<!-- $== table의 칼럼에 접근할때 #==값에 접근할때  -->
+		$== table의 칼럼에 접근할때 #==값에 접근할때 
 		</where>
 	</if>
-	ORDER BY NO DESC
+	ORDER BY NO DESC 
+-->
+	SELECT RM,NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME
+	FROM(
+	SELECT ROWNUM RM,NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME
+	FROM(
+	
+		SELECT NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,NAME
+		FROM JOINMEMBER
+		<if test="query!=null and data!=null">
+		<where>
+			${query} LIKE '%'||#{data}||'%'
+		</where>
+		</if>
+		ORDER BY NO DESC))
+		WHERE RM BETWEEN #{start} AND #{end}
 	</select>
 	
 	<delete id="deleteMember" parameterType="int">
@@ -188,6 +203,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		id=#{id},password=#{password},gender=#{gender},birth=#{birth} 
 		WHERE NO=#{no} 
 	</update>
+	
+	<select id="getTotalMember" resultType="int" parameterType="java.util.HashMap">
+		SELECT COUNT(*) FROM JOINMEMBER
+		<if test="query!=null and data!=null">
+			<where>${query} LIKE '%'||#{data}||'%'</where>
+		</if>
+	</select>
+	
+	<insert id="insertAjax" parameterType="sist.com.model.AjaxcrudBean">
+		INSERT INTO AJAXCRUD VALUES(AJAXCRUD_SEQ.NEXTVAL,#{id},#{contents},SYSDATE)
+	</insert>
+	
+	<select id="selectAjax" resultType="sist.com.model.AjaxcrudBean">
+		select NO,ID,CONTENTS,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE	
+  		from AJAXCRUD
+  		order by no
+	</select>
 	
 </mapper>
 

@@ -1,0 +1,21 @@
+package sist.com.dao;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import sist.com.model.AjaxcrudBean;
+
+public class AjaxResultDao {
+	private static SqlSessionFactory sqlSessionFactory;
+	static {
+	sqlSessionFactory =SqlSessionFactoryManager.getSqlSessionFactory();
+	}
+	
+	public static void insertAjax(AjaxcrudBean bean) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession= sqlSessionFactory.openSession();
+			
+		}
+	}
+}

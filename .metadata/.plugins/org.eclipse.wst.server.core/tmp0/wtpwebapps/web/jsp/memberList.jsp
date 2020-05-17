@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="functions" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,7 +48,7 @@ input.modify{
 								$("tbody#tv").append("<tr><td>"+dom.no+"</td><td>"+dom.id+"</td><td>"+dom.name+"</td><td>"+dom.password+"</td><td>"+dom.gender+"</td><td>"+dom.birth+"</td><td>"+dom.address+"</td><td>"+dom.email+"</td><td>"+dom.tel+"</td><td>"+dom.cp+"</td><td>"+dom.regedate+"</td></tr>");
 							});
 						},error:function(){
-							alert('error');
+							alert('검색 error');
 						}	  							  
 					});
 				});
@@ -169,7 +170,6 @@ input.modify{
    <c:redirect url="jsp/admin.jsp"></c:redirect>
 </c:if> --%>
 <body>
-   
 	<div id="wrapper">
 		<div id="header">
 			<div class="topInfoWrap">
@@ -307,15 +307,49 @@ input.modify{
 					</table>
                   </form>
 					<div class="paging">
-						<a href="#"><img src="/web/img/button/btn_first.gif"
-							alt="처음페이지" /></a> <a href="#"><img
-							src="/web/img/button/btn_prev.gif" alt="이전" /></a> <span> <a
-							href="#">1</a> <a href="#">2</a> <a href="#">3</a> <strong>4</strong>
-							<a href="#">5</a> <a href="#">6</a> <a href="#">7</a> <a href="#">8</a>
-							<a href="#">9</a>
-						</span> <a href="#"><img src="/web/img/button/btn_next.gif" alt="다음" /></a>
-						<a href="#"><img src="/web/img/button/btn_last.gif"
-							alt="마지막페이지" /></a>
+						<a href="memberList.do?cmd=memberList&page=1">
+							<img src="/web/img/button/btn_first.gif"alt="처음페이지" />
+						</a>
+						<c:choose>
+							<c:when test="${pageBean.currentBlock gt 1}">
+								<a href="memberList.do?cmd=memberList&page=${pageBean.startPage-1}">
+								<img src="/web/img/button/btn_prev.gif" alt="이전" />
+								</a> 
+							</c:when>
+<%-- 							<c:otherwise>
+								<a href="#">
+								<img src="/web/img/button/btn_prev.gif" alt="이전" />
+								</a> 
+							</c:otherwise> 
+--%>
+						</c:choose>
+						
+						
+						
+						<c:forEach var="i" begin="${pageBean.startPage}" end="${pageBean.endPage}" >
+							<span>
+								<c:choose>
+									<c:when test="${pageBean.currentPage eq i}">
+										<strong>
+											<a href="#" style="color:red;">${i}</a> 
+										</strong>
+									</c:when>
+									<c:otherwise>
+										<a href="memberList.do?cmd=memberList&page=${i}">${i}</a> 
+									</c:otherwise>
+								</c:choose>
+							</span>
+						</c:forEach>
+						
+						<c:choose>
+							<c:when test="${pageBean.totalPage gt pageBean.endPage}">
+								<a href="memberList.do?cmd=memberList&page=${pageBean.endPage+1}"><img src="/web/img/button/btn_next.gif" alt="다음" /></a>
+							</c:when>
+						</c:choose>
+						
+						
+						
+						<a href="memberList.do?cmd=memberList&page=${pageBean.totalPage}"><img src="/web/img/button/btn_last.gif" alt="마지막페이지" /></a>
 
 					</div>
 				</div>

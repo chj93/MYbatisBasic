@@ -1,0 +1,38 @@
+package sist.com.action;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class AjaxResultAction implements Action {
+	private String path;
+	private boolean redirect;
+	
+	
+	public AjaxResultAction() {
+		super();
+	}
+	
+	public AjaxResultAction(String path, boolean redirect) {
+		super();
+		this.path = path;
+		this.redirect = redirect;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	public boolean isRedirect() {
+		return redirect;
+	}
+	public void setRedirect(boolean redirect) {
+		this.redirect = redirect;
+	}
+
+	@Override
+	public ActionForWard execute(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return new ActionForWard(path,redirect);
+	}
+	
+}

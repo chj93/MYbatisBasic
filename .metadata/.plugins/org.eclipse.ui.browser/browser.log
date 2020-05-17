@@ -11,3 +11,22 @@
 5월 13, 2020 14:04:19.77 [217208:30016:0513/140419.775:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
 5월 13, 2020 14:04:27.39 [217208:272668:0513/140427.390:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
 5월 13, 2020 15:12:24.48 [217208:272668:0513/151224.488:ERROR:mcs_client.cc(755)] Received close command, resetting connection.
+5월 13, 2020 17:55:36.08 [217208:272668:0513/175536.082:ERROR:socket_stream.cc(218)] Closing stream with result -2
+5월 15, 2020 09:03:34.63 [217208:272668:0515/090334.632:ERROR:socket_stream.cc(218)] Closing stream with result -2
+5월 15, 2020 09:03:37.04 [217208:30016:0515/090337.045:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+5월 15, 2020 09:03:38.93 [217208:272668:0515/090338.930:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+5월 15, 2020 09:03:44.00 [217208:272668:0515/090344.004:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
+5월 15, 2020 09:03:44.01 [217208:30016:0515/090344.004:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+5월 15, 2020 09:29:47.93 [217208:272668:0515/092947.935:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
+5월 15, 2020 09:29:50.11 [217208:272668:0515/092950.117:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+5월 15, 2020 10:03:13.09 [217208:272668:0515/100313.092:ERROR:mcs_client.cc(755)] Received close command, resetting connection.
+5월 15, 2020 14:03:42.59 [217208:272668:0515/140342.589:ERROR:socket_stream.cc(218)] Closing stream with result -2
+5월 15, 2020 16:04:52.77 [217208:272668:0515/160452.773:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+5월 15, 2020 16:05:17.87 [217208:272668:0515/160517.878:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+5월 15, 2020 16:06:02.19 [217208:272668:0515/160602.196:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+5월 15, 2020 16:07:33.15 [217208:272668:0515/160733.155:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+5월 15, 2020 16:10:38.31 [217208:272668:0515/161038.315:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+5월 15, 2020 16:18:24.47 [217208:272668:0515/161824.476:ERROR:socket_stream.cc(218)] Closing stream with result -2
+5월 15, 2020 16:18:30.41 [217208:272668:0515/161830.415:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
+5월 15, 2020 16:23:42.94 [217208:272668:0515/162342.946:ERROR:socket_stream.cc(218)] Closing stream with result -2
+5월 15, 2020 17:13:29.62 [380600:380612:0515/171329.624:ERROR:browser_switcher_service.cc(238)] XXX Init()

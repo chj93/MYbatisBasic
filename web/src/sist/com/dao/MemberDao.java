@@ -127,7 +127,20 @@ public class MemberDao {
 		}
 	}
 	
-	
+	public static Integer getTotalMember(HashMap<String, Object>map) {
+		SqlSession sqlsession=null;
+		try {
+			sqlsession=sqlSessionFactory.openSession();
+			return sqlsession.selectOne("getTotalMember",map);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlsession.close();
+		}
+		
+		return 0;
+	}
 }
 
 

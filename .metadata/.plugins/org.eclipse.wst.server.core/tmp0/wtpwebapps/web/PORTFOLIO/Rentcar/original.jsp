@@ -38,8 +38,6 @@
 <script src="static/js/popover.js"></script>
 <script src="static/js/jquery.matchHeight.js"></script>
 
-
-
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2bbd6cc411865377f508e80bc9ea0219"></script>
 
 
@@ -49,7 +47,6 @@ $( document ).ready( function(){
 });
 </script>
 
-	
 		
 			<script type="application/ld+json">
 			{
@@ -1489,6 +1486,15 @@ $(document).ready(function() {
 <label for="vhctySeCodes_6" ><input name="vhctySeCodes" type="checkbox" id="vhctySeCodes_6" value="06"     />승합</label>
 <label for="vhctySeCodes_7" ><input name="vhctySeCodes" type="checkbox" id="vhctySeCodes_7" value="08"     />전기</label>
 <label for="vhctySeCodes_8" ><input name="vhctySeCodes" type="checkbox" id="vhctySeCodes_8" value="09"     />수입</label>
+
+<script>
+$(function(){
+	$("label#vhctySeCodes_1").click(function(){
+		alert('test');
+	});
+});
+
+</script>
 
 			</div>
 			</dd>

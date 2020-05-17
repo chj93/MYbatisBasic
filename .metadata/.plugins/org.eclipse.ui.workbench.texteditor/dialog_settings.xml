@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="212" key="DIALOG_X_ORIGIN"/>
+		<item value="362" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.jst.jsp.ui.internal.preferences.ui.JSPTemplatePreferencePage$JSPEditTemplateDialog_dialogBounds">
 		<item value="717" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
-		<item value="419" key="DIALOG_HEIGHT"/>
+		<item value="1030" key="DIALOG_HEIGHT"/>
 		<item value="346" key="DIALOG_X_ORIGIN"/>
-		<item value="236" key="DIALOG_Y_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="NO" key="selection"/>
+		<item value="image/" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="no"/>
-			<item value="440px"/>
-			<item value=".container"/>
-			<item value="date"/>
-			<item value="dateInfo"/>
-			<item value=".col-lg-1,"/>
-			<item value="1px"/>
-			<item value="dateSelect"/>
-			<item value="form-control"/>
-			<item value="btn"/>
-			<item value="search-car-input"/>
-			<item value="1170px"/>
-			<item value="(min-width: 1200px)"/>
-			<item value="@media (min-width: 1200px)"/>
-			<item value="contents_wrap"/>
+			<item value="/w3images/"/>
+			<item value="/w3iages"/>
+			<item value="소형"/>
+			<item value="/api/search/fileImage.do?vhcleSn=34812519"/>
+			<item value="/static/"/>
+			<item value="ace"/>
+			<item value="footer"/>
+			<item value="ajaxResult"/>
+			<item value="tochar"/>
+			<item value="sel"/>
+			<item value="ins"/>
+			<item value="in"/>
+			<item value="memberList"/>
+			<item value="getT"/>
+			<item value="join"/>
 		</list>
 		<list key="replacehistory">
+			<item value="image/"/>
+			<item value="..image/"/>
+			<item value="../"/>
 			<item value="a href=&quot;#&quot;"/>
 			<item value="&quot;},"/>
 			<item value="&quot;{i"/>
@@ -44,7 +51,7 @@
 		<item value="340" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="454" key="DIALOG_HEIGHT"/>
-		<item value="298" key="DIALOG_X_ORIGIN"/>
-		<item value="281" key="DIALOG_Y_ORIGIN"/>
+		<item value="765" key="DIALOG_X_ORIGIN"/>
+		<item value="576" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
