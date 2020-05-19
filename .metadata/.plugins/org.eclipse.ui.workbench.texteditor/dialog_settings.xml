@@ -13,29 +13,30 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="var r=t.data;t.isDefaultPrevented()" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="section-banner"/>
-			<item value="bg-gray-700"/>
-			<item value="후기"/>
-			<item value="h3"/>
-			<item value=".button-secondary:hover"/>
-			<item value=".button-secondary, .button-secondary:focus"/>
-			<item value=":hover"/>
-			<item value=":lover"/>
-			<item value="APR"/>
-			<item value="dtpElement"/>
-			<item value="dtp-actual-month"/>
-			<item value="div"/>
-			<item value="FEB"/>
-			<item value="MAR"/>
-			<item value="December"/>
+			<item value="var r=t.data;t.isDefaultPrevented()"/>
+			<item value="preventDefault()"/>
+			<item value="@see"/>
+			<item value="from"/>
+			<item value="form"/>
+			<item value="form-fix"/>
+			<item value=".rd-mail"/>
+			<item value="France, Paris"/>
+			<item value="검색"/>
+			<item value="커뮤니티"/>
+			<item value="커"/>
+			<item value="예약하기"/>
+			<item value="REVIEW"/>
+			<item value="RE"/>
+			<item value="index.jsp"/>
 		</list>
 		<list key="replacehistory">
+			<item value="/JQuery/"/>
 			<item value="image/"/>
 			<item value="..image/"/>
 			<item value="../"/>
@@ -51,7 +52,7 @@
 		<item value="340" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="454" key="DIALOG_HEIGHT"/>
-		<item value="1285" key="DIALOG_X_ORIGIN"/>
-		<item value="513" key="DIALOG_Y_ORIGIN"/>
+		<item value="91" key="DIALOG_X_ORIGIN"/>
+		<item value="200" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

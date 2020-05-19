@@ -1,0 +1,84 @@
+function selectBoxDisplay(mode,flag){
+	if(mode=='hide' && flag==0){
+	$("select#sel2,select#sel3").hide();
+	}
+	if(mode=='show'&& flag==1){
+		if($("select#sel2").css("display")=='none'){
+			$("select#sel2").slideToggle("slow");
+		}else{
+			$("select#sel2").hide();
+			$("select#sel2").slideToggle("slow");
+		}
+	}
+}
+function getXmlData(xmlUrl,flag){
+	$.ajax({
+		url:xmlUrl,
+		type:'post',
+		dataType:'xml',
+		success:function(xml){
+			if(flag==1){
+				if($(xml).find("category").find("item").length>0){
+					$("select#sel2").append("<option value='empty' selected='selected'>선택하세요</option>");
+					$(xml).find("category").find("item").each(function(){
+						 var value=$(this).find("value").text();
+						 var title=$(this).find("title").text();
+						 $("select#sel2").append("<option value='"+value+"'>"+title+"</option>");
+					});
+				}
+			}
+		},
+		error:function(){
+			alert('error');
+		}
+	});
+}
+function changeEventFun(id){
+
+	  if(id=='sel1'){
+		  switch ($("select#"+id).val()) {
+		case "empty":
+			$("select#sel2 option").remove();
+			$("select#sel2,select#sel3").hide();
+			break;
+		case "1":
+		    $("select#sel2 option").remove();
+		    getXmlData("/web/jQuery/source/cart1.xml",1);
+		    selectBoxDisplay('show',1);
+		    break; 
+		case "2":
+			$("select#sel2 option").remove();
+			getXmlData("/web/jQuery/source/cart2.xml",1);
+			selectBoxDisplay('show',1);
+			break; 
+		default:
+			break;
+		}
+	 }//if
+	  else if(id=='sel2'){
+		  //alert($("select#"+id).val());
+		  switch ($("select#"+id).val()) {
+		case "empty":
+			
+			break;
+
+		default:
+			break;
+		}
+	  }
+} 
+$(function(){
+	selectBoxDisplay('hide',0);	
+	$("select").change(function(){		
+		var id=$(this).attr("id");
+		changeEventFun(id);
+		
+		//alert($("select#"+id).val());
+		//getXmlData('/web/jQuery/source/cart1.xml');
+		
+		
+	});//bind	
+	
+});//function
+
+

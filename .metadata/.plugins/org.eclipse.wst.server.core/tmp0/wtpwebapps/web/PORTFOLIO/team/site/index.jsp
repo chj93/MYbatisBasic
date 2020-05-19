@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="functions" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
@@ -19,32 +19,31 @@
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!------------------ .page=ÀüÃ¼ ¿µ¿ª ------------------->
-    <div class="page">
+    <!------------------ .page=ì „ì²´ ì˜ì—­ ------------------->
+    <div class="page" id="page">
       <!------------------ Header ------------------->
       <header class="section page-header">
         <div class="rd-navbar-wrap rd-navbar-corporate">
-          <!----- ¸Ş´º¹Ù --------->
+          <!----- ë©”ë‰´ë°” --------->
           <nav class="rd-navbar"  id="menu">
             <div class="rd-navbar-inner">
-              <!-- ¸ğ¹ÙÀÏ var - ¸Ş´ºÅä±Û-->
+              <!-- ëª¨ë°”ì¼ var - ë©”ë‰´í† ê¸€-->
               <div class="rd-navbar-panel">
                 <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                 <!-- logo -->
                 <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo-inverse-208x46.png" alt="" width="208" height="46"/></a></div>
               </div>
-              <!-- À¥ var. ¸Ş´º¹Ù -->
+              <!-- ì›¹ var. ë©”ë‰´ë°” -->
               <div class="rd-navbar-aside-center">
                 <div class="rd-navbar-nav-wrap">
                   <ul class="rd-navbar-nav">
-                    <li class="active"><a href="#menu">HOME</a>
-                    <!-- ¿¹¾àÇÏ±â/¿¹¾àÈ®ÀÎ/ -->
+                    <li class="active"><a href="#">HOME</a>
                     </li>
-                    <li><a href="#branchGuide">ÁöÁ¡¾È³»</a>
+                    <li><a href="#bookingBtn">ì˜ˆì•½í•˜ê¸°</a>
                     </li>
-                    <li><a href="#reviews">ÀÌ¿ëÈÄ±â</a>
+                    <li><a href="#community">ì»¤ë®¤ë‹ˆí‹°</a>
                     </li>
-                    <li><a href="typography.html">°í°´¼¾ÅÍ</a>
+                    <li><a href="typography.html">ì´ìš©í›„ê¸°</a>
                     </li>
                   </ul>
                 </div>
@@ -57,7 +56,7 @@
           </nav>
         </div>
       </header>
-      <!------------------ ½½¶óÀÌµå - ³»¿ë¼öÁ¤ --------------------->
+      <!------------------ ìŠ¬ë¼ì´ë“œ - ë‚´ìš©ìˆ˜ì • --------------------->
       <section class="section">
         <div class="swiper-form-wrap">
           <div class="swiper-container swiper-slider swiper-slider_height-1 swiper-align-left swiper-align-left-custom context-dark bg-gray-darker" data-loop="false" data-autoplay="5500" data-simulate-touch="false" data-slide-effect="fade">
@@ -82,7 +81,7 @@
                       <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
                         <h3>The Trip of Your Dream</h3>
                         <div class="divider divider-decorate"></div>
-                        <p class="text-spacing-sm">Our travel agency is ready to offer you an exciting vacation that is designed to fit your own needs and wishes. Whether it¡¯s an exotic cruise or a trip to your favorite resort, you will surely have the best experience.</p><a class="button button-default-outline button-nina button-sm" href="#">learn more</a>
+                        <p class="text-spacing-sm">Our travel agency is ready to offer you an exciting vacation that is designed to fit your own needs and wishes. Whether itâ€™s an exotic cruise or a trip to your favorite resort, you will surely have the best experience.</p><a class="button button-default-outline button-nina button-sm" href="#">learn more</a>
                       </div>
                     </div>
                   </div>
@@ -95,14 +94,14 @@
                       <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
                         <h3>unique Travel Insights</h3>
                         <div class="divider divider-decorate"></div>
-                        <p class="text-spacing-sm">Our team is ready to provide you with unique weekly travel insights that include photos, videos, and articles about untravelled tourist paths. We know everything about the places you¡¯ve never been to!</p><a class="button button-default-outline button-nina button-sm" href="#">learn more</a>
+                        <p class="text-spacing-sm">Our team is ready to provide you with unique weekly travel insights that include photos, videos, and articles about untravelled tourist paths. We know everything about the places youâ€™ve never been to!</p><a class="button button-default-outline button-nina button-sm" href="#">learn more</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- ½½¶óÀÌµå µ¶¹Ù -->
+            <!-- ìŠ¬ë¼ì´ë“œ ë…ë°” -->
             <div class="swiper-pagination-wrap">
               <div class="container container-bigger">
                 <div class="row">
@@ -113,61 +112,61 @@
               </div>
             </div>
           </div>
-          <!---------------- ¿¹¾à FORM -------------->
+          <!---------------- ì˜ˆì•½ FORM -------------->
           <div class="container container-bigger form-request-wrap form-request-wrap-modern">
             <div class="row row-fix justify-content-sm-center justify-content-lg-end">
               <div class="col-lg-6 col-xxl-5">
                 <div class="form-request form-request-modern bg-gray-lighter novi-background">
                   <!-- <h4>SIST RENT CAR</h4> --> 
-                  <form class="rd-mailform form-fix">
+                  <form class="rd-mailform form-fix" id="bookingBtn">
                     <div class="row row-20 row-fix">
                       <div class="col-sm-12 col-lg-6">
-                        <label class="form-label-outside">´ë¿©ÀÏ½Ã</label>
+                        <label class="form-label-outside">ëŒ€ì—¬ì¼ì‹œ</label>
                         <div class="form-wrap form-wrap-validation">
                           <!-- Select -->
                           <input class="form-input" id="dateForm" name="date" type="text" data-time-picker="date">
-                          <label class="form-label" for="dateForm">³¯Â¥¸¦ ¼±ÅÃÇÏ¼¼¿ä.</label>
+                          <label class="form-label" for="dateForm">ë‚ ì§œë¥¼ ì„ íƒí•˜ì„¸ìš”.</label>
                         </div>
                       </div>
                       <div class="col-sm-12 col-lg-6">
-                        <label class="form-label-outside">¹İ³³ÀÏ½Ã</label>
+                        <label class="form-label-outside">ë°˜ë‚©ì¼ì‹œ</label>
                         <div class="form-wrap form-wrap-validation">
                           <!-- Select -->
                           <input class="form-input" id="dateForm" name="date" type="text" data-time-picker="date">
-                          <label class="form-label" for="dateForm">³¯Â¥¸¦ ¼±ÅÃÇÏ¼¼¿ä.</label>
+                          <label class="form-label" for="dateForm">ë‚ ì§œë¥¼ ì„ íƒí•˜ì„¸ìš”.</label>
                         </div>
                       </div>
                       <div class="col-sm-12">
-                        <label class="form-label-outside">´ë¿©ÁöÁ¡</label>
+                        <label class="form-label-outside">ëŒ€ì—¬ì§€ì </label>
                         <div class="form-wrap form-wrap-inline">
                           <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="place">
-                            <option value="°­³²ÁöÁ¡">°­³²ÁöÁ¡</option>
-                            <option value="Àá½ÇÁöÁ¡">Àá½ÇÁöÁ¡</option>
-                            <option value="±¸·ÎÁöÁ¡">±¸·ÎÁöÁ¡</option>
+                            <option value="ê°•ë‚¨ì§€ì ">ê°•ë‚¨ì§€ì </option>
+                            <option value="ì ì‹¤ì§€ì ">ì ì‹¤ì§€ì </option>
+                            <option value="êµ¬ë¡œì§€ì ">êµ¬ë¡œì§€ì </option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-12">
-                        <label class="form-label-outside">Â÷·®À¯Çü</label>
+                        <label class="form-label-outside">ì°¨ëŸ‰ìœ í˜•</label>
                         <div class="form-wrap form-wrap-inline">
                           <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="car">
-                            <option value="1">ÀüÃ¼º¸±â</option>
-                            <option value="2">Àü±âÂ÷</option>
-                            <option value="3">¼öÀÔÂ÷</option>
-                            <option value="3">±¹»êÂ÷</option>
+                            <option value="1">ì „ì²´ë³´ê¸°</option>
+                            <option value="2">ì „ê¸°ì°¨</option>
+                            <option value="3">ìˆ˜ì…ì°¨</option>
+                            <option value="3">êµ­ì‚°ì°¨</option>
                           </select>
                         </div>
                       </div>                      
 
                       <div class="col-sm-12">
-                        <label class="form-label-outside">Å¾½ÂÀÎ¿ø</label>
+                        <label class="form-label-outside">íƒ‘ìŠ¹ì¸ì›</label>
                         <div class="form-wrap form-wrap-modern">
                           <input class="form-input input-append" id="form-element-stepper" type="number" min="0" max="300" value="2">
                         </div>
                       </div>
                     </div>
                     <div class="form-wrap form-button">
-                      <button class="button button-block button-secondary" type="submit">°Ë»ö</button>
+                      <button class="button button-block button-secondary" type="submit">ê²€ìƒ‰</button>
                     </div>
                   </form>
                 </div>
@@ -177,16 +176,15 @@
         </div>
       </section>
 	
-      <section class="section section-variant-1 bg-default novi-background bg-cover" id="branchGuide"> 
+      <section class="section section-variant-1 bg-default novi-background bg-cover" id="community"> 
         <div class="container container-wide">
           <div class="row row-fix justify-content-xl-end row-30 text-center text-xl-left">
             <div class="col-xl-8">
               <div class="parallax-text-wrap">
-                <h3>ÁöÁ¡¾È³»</h3><span class="parallax-text">branch guide</span>
+                <h3>ì»¤ë®¤ë‹ˆí‹°</h3><span class="parallax-text">COMMUNITY     </span>
               </div>
               <hr class="divider divider-decorate">
             </div>
-            <div class="col-xl-3 text-xl-right"><a class="button button-secondary button-nina" href="#">view all tours</a></div>
           </div>
           <div class="row row-50">
             <div class="col-md-6 col-xl-4">
@@ -195,9 +193,6 @@
                   <figure class="event-default-image"><img src="images/landing-private-airlines-01-570x370.jpg" alt="" width="570" height="370"/>
                   </figure>
                   <div class="event-default-caption"><a class="button button-xs button-secondary button-nina" href="#">learn more</a></div>
-                </div>
-                <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="#">France, Paris</a></h5><span class="heading-5">from $280</span>
                 </div>
               </article>
             </div>
@@ -208,9 +203,6 @@
                   </figure>
                   <div class="event-default-caption"><a class="button button-xs button-secondary button-nina" href="#">learn more</a></div>
                 </div>
-                <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="#">USA, Boston</a></h5><span class="heading-5">from $480</span>
-                </div>
               </article>
             </div>
             <div class="col-md-6 col-xl-4">
@@ -220,12 +212,9 @@
                   </figure>
                   <div class="event-default-caption"><a class="button button-xs button-secondary button-nina" href="#">learn more</a></div>
                 </div>
-                <div class="event-default-inner">
-                  <h5><a class="event-default-title" href="#">Italy, Venice</a></h5><span class="heading-5">from $350</span>
-                </div>
               </article>
             </div>
-            <div class="col-md-6 col-xl-4">
+<!--             <div class="col-md-6 col-xl-4">
               <article class="event-default-wrap">
                 <div class="event-default">
                   <figure class="event-default-image"><img src="images/landing-private-airlines-04-570x370.jpg" alt="" width="570" height="370"/>
@@ -260,7 +249,7 @@
                   <h5><a class="event-default-title" href="#">UK, London</a></h5><span class="heading-5">from $600</span>
                 </div>
               </article>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -268,7 +257,7 @@
       <!-- our advantages-->
       <section class="section section-lg bg-gray-lighter novi-background bg-cover text-center" id="reviews">
         <div class="container container-wide">
-          <h3>ÀÌ¿ëÈÄ±â</h3>
+          <h3>ì´ìš©í›„ê¸°</h3>
           <div class="divider divider-decorate"></div>
           <div class="row row-50 justify-content-sm-center text-left">
             <div class="col-sm-10 col-md-6 col-xl-3">
@@ -312,7 +301,7 @@
         <div class="container-wide">
           <div class="row row-50">
             <div class="col-sm-12">
-              <h3>°í°´¼¾ÅÍ</h3>
+              <h3>ê³ ê°ì„¼í„°</h3>
               <div class="divider divider-decorate"></div>
               <!-- Owl Carousel-->
               <div class="owl-carousel owl-carousel-team owl-carousel-inset" data-items="1" data-md-items="2" data-xl-items="3" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false" data-dots="true" data-autoplay="true">
@@ -345,7 +334,7 @@
                       </ul>
                     </div>
                     <div class="post-blog-caption-body">
-                      <h5><a class="post-blog-title" href="#">How to Plan Your Vacation in Advance and Why It¡¯s Beneficial</a></h5>
+                      <h5><a class="post-blog-title" href="#">How to Plan Your Vacation in Advance and Why Itâ€™s Beneficial</a></h5>
                     </div>
                     <div class="post-blog-caption-footer">
                       <time datetime="2019">Feb 27, 2019 at 6:53 pm</time><a class="post-comment" href="#"><span class="icon novi-icon icon-md-middle icon-gray-1 mdi mdi-comment"></span><span>12</span></a>

@@ -1,8 +1,0 @@
-package sist.com.action;
-
-public class MemberAction {
-	private String path;
-	private boolean redirect;
-	
-	
-}

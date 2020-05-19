@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<category>
+	<item>
+		<value>1001</value>
+		<title>상의</title>
+	</item>
+	<item>
+		<value>1002</value>
+		<title>하의</title>
+	</item>	
+	<item>
+		<value>1003</value>
+		<title>원피스</title>
+	</item>
+	<item>
+		<value>1004</value>
+		<title>언더웨어/남성화/여성화</title>
+	</item>
+</category>
