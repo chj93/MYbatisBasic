@@ -16,7 +16,7 @@ public class DispatcherServlet extends HttpServlet{
 		//super.service(req, resp);
 		//System.out.println("DispatcherServlet");
 		
-		request.setCharacterEncoding("EUC-KR"); //post방식일떄만 이곳에서.
+		request.setCharacterEncoding("UTF-8"); //post방식일떄만 이곳에서.
 		//~~.do로 들어오는값들을 cmd로 받아서 각각 서비스되도록
 		String cmd=request.getParameter("cmd");
 		Action action = ActionFactory.getAction(cmd);

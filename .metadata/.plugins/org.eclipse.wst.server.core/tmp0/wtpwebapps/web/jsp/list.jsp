@@ -37,10 +37,10 @@
 	
 		String id=(String)request.getSession().getAttribute("id");
 		if(id==null)response.sendRedirect("adminLogin.jsp");
-		
+	
 	    String query=request.getParameter("query");
 	    String data=request.getParameter("data");
-	    
+ 	    
 	    HashMap<String,Object>map=new HashMap<String,Object>();
 	    
 		int pageScale=5; //[1]당 들어갈 데이터 갯수
@@ -72,7 +72,7 @@
 	    
 		map.put("start",start);
 		map.put("end",end);
-	    
+
 	    list=AppleDao.selectBbs(map);
 	%>
 	

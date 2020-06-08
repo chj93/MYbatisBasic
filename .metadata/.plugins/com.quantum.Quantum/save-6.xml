@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<SAVED_DATA>
+	<bookmarks>
+		<jdbcDriver className="org.apache.derby.jdbc.EmbeddedDriver" name="org.apache.derby.jdbc.EmbeddedDriver" type="DERBY" version="">
+			<jar fileName="C:/Users/USER/Desktop/JAVA/01_환경설정/eclipse-jee-2018-09-win32-x86_64/eclipse/file::/C::/Users/USER/Desktop/JAVA/01_환경설정/eclipse-jee-2018-09-win32-x86_64/eclipse/plugins/com.quantum.derby_3.3.10.jar!/lib/derby.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="oracle.jdbc.driver.OracleDriver" name="Oracle JDBC driver" type="ORACLE" version="10.2.0.1.0">
+			<jar fileName="C:\app\SIST108\product\11.2.0\dbhome_1\owb\wf\lib\ojdbc14.jar" />
+		</jdbcDriver>
+		<jdbcDriver className="org.apache.derby.jdbc.EmbeddedDriver" name="org.apache.derby.jdbc.EmbeddedDriver" type="DERBY" version="">
+			<jar fileName="D:/javaEx/eclipse-jee-2018-09-win32-x86_64/eclipse/file::/D::/javaEx/eclipse-jee-2018-09-win32-x86_64/eclipse/plugins/com.quantum.derby_3.3.10.jar!/lib/derby.jar" />
+		</jdbcDriver>
+		<bookmark>
+			<name>apple</name>
+			<username>APPLE</username>
+			<password>APPLE</password>
+			<prompt>false</prompt>
+			<connect>jdbc:oracle:thin:@localhost:1521:orcl</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>false</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>oracle.jdbc.driver.OracleDriver</driver>
+			<type>ORACLE</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:\app\SIST108\product\11.2.0\dbhome_1\owb\wf\lib\ojdbc14.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList>
+				<query>
+					<queryString>CREATE TABLE JOINMEMBER(
+NO NUMBER(5) CONSTRAINT JOINMEMBER_NO_PK PRIMARY KEY,
+id VARCHAR2(10),
+password VARCHAR2(10),
+gender VARCHAR2(20),
+birth VARCHAR2(20),
+address VARCHAR2(100),
+email VARCHAR2(50),
+tel VARCHAR2(20),
+cp VARCHAR2(20),
+regdate date,
+name VARCHAR2(10)
+)</queryString>
+				</query>
+				<query>
+					<queryString>CREATE SEQUENCE JOINMEMBER_SEQ</queryString>
+				</query>
+				<query>
+					<queryString>select * from emp</queryString>
+				</query>
+				<query>
+					<queryString>select * from joinmember</queryString>
+				</query>
+				<query>
+					<queryString>SELECT ROWNUM RM,NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME
+	FROM(
+	
+	SELECT NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,NAME
+	FROM JOINMEMBER
+	WHERE ID LIKE '%A%'
+	ORDER BY NO DESC)</queryString>
+				</query>
+				<query>
+					<queryString>SELECT ROWNUM RM,NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME
+	FROM(
+	SELECT ROWNUM RM,NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME
+	FROM(
+	
+		SELECT NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,NAME
+		FROM JOINMEMBER
+		WHERE ID LIKE '%A%'
+		ORDER BY NO DESC))
+	WHERE RM BETWEEN 1 AND 2</queryString>
+				</query>
+				<query>
+					<queryString>SELECT ROWNUM RM,NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME
+	FROM(
+	SELECT ROWNUM RM,NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,REGDATE,NAME
+	FROM(
+	
+		SELECT NO,ID,PASSWORD,GENDER,BIRTH,ADDRESS,EMAIL,TEL,CP,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,NAME
+		FROM JOINMEMBER
+		WHERE ID LIKE '%B%'
+		ORDER BY NO DESC))
+	WHERE RM BETWEEN 1 AND 2</queryString>
+				</query>
+				<query>
+					<queryString>INSERT INTO JOINMEMBER VALUES(JOINMEMBER_SEQ.NEXTVAL,'aaa','1234','여자',SYSDATE,'151-861서울관악구삼성동16-8','aa@gmail.com','02-458-5539','010-8725-6544',SYSDATE,'최봄')</queryString>
+				</query>
+				<query>
+					<queryString>select * from JOINMEMBER</queryString>
+				</query>
+				<query>
+					<queryString>create table AJAXCRUD (
+NO NUMBER(5) CONSTRAINT AJAXCRUD_NO_PK PRIMARY KEY,
+ID VARCHAR2(10),
+CONTENTS CLOB,
+REGDATE DATE)</queryString>
+				</query>
+				<query>
+					<queryString>CREATE SEQUENCE AJAXCRUD_SEQ</queryString>
+				</query>
+				<query>
+					<queryString>SELECT * FROM AJAXCRUD</queryString>
+				</query>
+				<query>
+					<queryString>select NO,ID,CONTENTS,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE	
+  		from AJAXCRUD</queryString>
+				</query>
+				<query>
+					<queryString>select NO,ID,CONTENTS,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE	
+  		from AJAXCRUD
+		order by no</queryString>
+				</query>
+			</queryList>
+		</bookmark>
+		<bookmark>
+			<name>(Internal) Derby</name>
+			<username>QUANTUM</username>
+			<password />
+			<prompt>false</prompt>
+			<connect>jdbc:derby:C:/Users/USER/Desktop/JAVA/01_환경설정/eclipse-jee-2018-09-win32-x86_64/eclipse/file::/C::/Users/USER/Desktop/JAVA/01_환경설정/eclipse-jee-2018-09-win32-x86_64/eclipse/plugins/com.quantum.derby_3.3.10.jar!/data/quantum</connect>
+			<autoCommit>true</autoCommit>
+			<autoCommitPreference>Always True</autoCommitPreference>
+			<autoCommitIgnoreView>false</autoCommitIgnoreView>
+			<quoteAll>false</quoteAll>
+			<sendQueryAsIs>false</sendQueryAsIs>
+			<stripNewline>false</stripNewline>
+			<shutdownOnDisconnect>true</shutdownOnDisconnect>
+			<defaultEncoding />
+			<driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+			<type>DERBY</type>
+			<substituteVariables>false</substituteVariables>
+			<variablesRegexp>\$\{(.*?)\}</variablesRegexp>
+			<driverLocation>C:/Users/USER/Desktop/JAVA/01_환경설정/eclipse-jee-2018-09-win32-x86_64/eclipse/file::/C::/Users/USER/Desktop/JAVA/01_환경설정/eclipse-jee-2018-09-win32-x86_64/eclipse/plugins/com.quantum.derby_3.3.10.jar!/lib/derby.jar</driverLocation>
+			<Other_Schemas schemaRule="useAll" />
+			<quickList />
+			<queryList />
+		</bookmark>
+	</bookmarks>
+</SAVED_DATA>

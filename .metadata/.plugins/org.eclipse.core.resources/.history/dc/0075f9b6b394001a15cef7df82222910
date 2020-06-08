@@ -1,0 +1,44 @@
+package sist.com.action;
+
+import javax.servlet.http.HttpServletRequest;
+
+import sist.com.dao.MemberDao;
+
+public class DeleteAction implements Action{
+	private String path;
+	private boolean redirect;
+	
+
+	public DeleteAction(String path, boolean redirect) {
+		super();
+		this.path = path;
+		this.redirect = redirect;
+	}
+
+	@Override
+	public ActionForWard execute(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		
+		String no=request.getParameter("no");
+		String job=request.getParameter("job");
+		
+		System.out.println("no="+no+"job="+job);
+		
+	/*	
+		String []nos=request.getParameterValues("nt");
+		for(String no:nos) {
+			System.out.println(no);
+			//MemberDao.deleteMember(Integer.parseInt(no));
+			
+			//dao.delete(Integer.parseInt(no));			
+			//request.setAttribute("deleteMember",MemberDao.deleteMember(no));
+		}*/
+		if(job!=null) {
+			dao.delete(Integer.parseInt(no));	
+		}
+		
+		return new ActionForWard(path, redirect);
+	}
+	
+
+}

@@ -1,0 +1,15 @@
+package sist.com.action;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class DeleteAction implements Action{
+
+	@Override
+	public ActionForWard execute(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
+}

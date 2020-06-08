@@ -1,26 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="212" key="DIALOG_X_ORIGIN"/>
+		<item value="362" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.jst.jsp.ui.internal.preferences.ui.JSPTemplatePreferencePage$JSPEditTemplateDialog_dialogBounds">
+		<item value="717" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="1030" key="DIALOG_HEIGHT"/>
+		<item value="346" key="DIALOG_X_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="form" key="selection"/>
+		<item value="var r=t.data;t.isDefaultPrevented()" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
-		<item value="true" key="wrap"/>
+		<item value="false" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="FORM"/>
+			<item value="var r=t.data;t.isDefaultPrevented()"/>
+			<item value="preventDefault()"/>
+			<item value="@see"/>
+			<item value="from"/>
 			<item value="form"/>
-			<item value="head"/>
-			<item value="저장"/>
+			<item value="form-fix"/>
+			<item value=".rd-mail"/>
+			<item value="France, Paris"/>
+			<item value="검색"/>
+			<item value="커뮤니티"/>
+			<item value="커"/>
+			<item value="예약하기"/>
+			<item value="REVIEW"/>
+			<item value="RE"/>
+			<item value="index.jsp"/>
 		</list>
 		<list key="replacehistory">
+			<item value="/JQuery/"/>
+			<item value="image/"/>
+			<item value="..image/"/>
+			<item value="../"/>
+			<item value="a href=&quot;#&quot;"/>
+			<item value="&quot;},"/>
+			<item value="&quot;{i"/>
+			<item value=","/>
+			<item value=" "/>
+			<item value=".jsp"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="288" key="DIALOG_WIDTH"/>
-		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
-		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="376" key="DIALOG_X_ORIGIN"/>
-		<item value="112" key="DIALOG_Y_ORIGIN"/>
+		<item value="340" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="454" key="DIALOG_HEIGHT"/>
+		<item value="91" key="DIALOG_X_ORIGIN"/>
+		<item value="200" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

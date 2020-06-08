@@ -31,14 +31,21 @@
 			<div>
 				<!--로고-->
 				<h1 id="logo">
-					<a href="index.html">동화제약</a>
+					<a href="index.jsp">동화제약</a>
 				</h1>
 				
-				<!--언어선택 웹-->
+<!-- 				언어선택 웹
 				<nav id="lang_web">
 					<a href="#" class="choice">KO</a>
 					<span>|</span>
 					<a href="#">EN</a>
+				</nav>
+				 -->
+				 
+				<nav id="lang_web">
+					<a href="#">로그인</a>
+					<span>|</span>
+					<a href="#">회원가입</a>
 				</nav>
 				
 				<script>
@@ -84,10 +91,10 @@
 						
 						<ul>
 							<li>
-								<a href="introduction.html">소개</a>
+								<a href="introduction.jsp">소개</a>
 								<h3>소개</h3>
 								<ul>
-									<li><a href="introduction.html" style="color: #933436">기업소개</a></li>
+									<li><a href="introduction.jsp" style="color: #933436">기업소개</a></li>
 									<li><a href="#">CEO인사말</a></li>
 									<li><a href="#">연혁</a></li>
 									<li><a href="#">사가</a></li>

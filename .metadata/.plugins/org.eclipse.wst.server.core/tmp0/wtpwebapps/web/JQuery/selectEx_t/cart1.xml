@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<category>
+   <item>
+       <value>111</value>
+       <title>패션의류/잡화/여성의류/패션</title>
+   </item>
+   <item>
+       <value>112</value>
+       <title>남성의류/정장</title>
+   </item>
+   <item>
+       <value>113</value>
+       <title>빅사이즈/미시/커리어</title>
+   </item>
+   <item>
+       <value>114</value>
+       <title>소모품 패션</title>
+   </item>
+   <item>
+       <value>115</value>
+       <title>언더웨어/남성화/패션화</title>
+   </item>
+</category>

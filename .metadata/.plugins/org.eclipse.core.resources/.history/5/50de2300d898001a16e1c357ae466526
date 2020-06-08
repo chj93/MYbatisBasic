@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<category>
+	<item>
+		<value>200</value>
+		<title>명품브랜드</title>
+	</item>
+	<item>
+		<value>201</value>
+		<title>잡화브랜드</title>
+	</item>
+	<item>
+		<value>203</value>
+		<title>스트릿브랜드</title>
+	</item>
+	<item>
+		<value>204</value>
+		<title>스포츠브랜드</title>
+	</item>
+</category>

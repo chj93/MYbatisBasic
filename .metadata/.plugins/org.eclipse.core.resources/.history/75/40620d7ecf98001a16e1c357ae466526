@@ -1,0 +1,66 @@
+/* select.js */
+//-- JQuery/basic4/JQex2.jsp
+// mode==이펙트, flag==선택유무 0==기본모드
+
+function selectBoxDisplay(mode,flag){
+	if(mode=='hideAll'&&flag==0){
+	$("select#sel2, select#sel3").hide();
+	}
+	if(mode=='show'){
+		
+	}	
+}
+//selectBoxDisplay
+
+function getXmlData(xmlUrl,flag){
+	$.ajax({
+		url:xmlUrl,
+		type:'POST',
+		dataType:'xml',
+		success:function(v){
+			console.log(v);
+		},error:function(){
+			alert('Xml error')
+		}
+	});
+}
+//getXmlData
+
+function changeEventFun(id){
+	if(id=='sel1'){
+		switch ($("select#"+id).val()) {
+		//선택한 select의 아이디 값
+		//alert($("select#"+selectId).val());
+		case "empty":
+			$("select#sel2 option").remove();
+			$("select#sel2, select#sel3").hide();
+			//selectBoxDisplay('hideAll',0);
+		break;
+		case "1":
+			$("select#sel2 option").remove();
+			//선택한 select의 option value값
+			//getXmlData('/web/JQuery/source/cart1.xml',0);
+			getXmlData('/web/JQuery/source/cart1.xml',1);
+			selectBoxDisplay('show', 1);
+		break;
+
+		default:
+			break;
+		}
+		//switch
+	}
+}
+//changeEventFun
+
+$(function(){
+	selectBoxDisplay('hideAll',0);
+	$("select").bind("change",function(){
+		var selectId=$(this).attr("id");
+
+		changeEventFun(selectId);
+		
+	});	
+	//select bind
+	
+});
+//main function

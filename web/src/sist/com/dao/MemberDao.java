@@ -72,11 +72,11 @@ public class MemberDao {
 		}
 	}
 	
-	public static List<MemberBean>selectMember(){
+	public static List<MemberBean>selectMember(HashMap<String, Object>map){
 		SqlSession sqlsession=null;
 		try {
 			sqlsession=sqlSessionFactory.openSession();
-			return sqlsession.selectList("selectMember");
+			return sqlsession.selectList("selectMember",map);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -85,6 +85,61 @@ public class MemberDao {
 		}
 		
 		return null;
+	}
+	
+	
+	public static void deleteMember(int no) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			sqlSession.delete("deleteMember", no);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		} finally {
+			try {
+				sqlSession.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+	}
+	
+	public static void updateMember(MemberBean bean) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession=sqlSessionFactory.openSession();
+			sqlSession.update("updateMember",bean);
+			sqlSession.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				sqlSession.close();
+				sqlSession.rollback();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+			
+		}
+	}
+	
+	public static Integer getTotalMember(HashMap<String, Object>map) {
+		SqlSession sqlsession=null;
+		try {
+			sqlsession=sqlSessionFactory.openSession();
+			return sqlsession.selectOne("getTotalMember",map);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlsession.close();
+		}
+		
+		return 0;
 	}
 }
 

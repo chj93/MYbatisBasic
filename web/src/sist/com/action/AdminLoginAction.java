@@ -21,11 +21,13 @@ public class AdminLoginAction implements Action{
 
 		String id=request.getParameter("id");
 		String password=request.getParameter("password");
-		System.out.println(id+" "+password);
+		//System.out.println(id+" "+password);
 		
 		if(id.equals("Admin")&&password.equals("1234")) {
 			//path="list.jsp"; X
 			path="memberList.do?cmd=memberList";
+			request.getSession().setAttribute("id", id);
+			request.getSession().setMaxInactiveInterval(60);
 		}else {
 			path="jsp/admin.jsp";
 			redirect=true;
